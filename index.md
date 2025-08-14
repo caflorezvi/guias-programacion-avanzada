@@ -2,6 +2,6 @@ En este espacio académico estudiaremos todos los aspectos relacionados con la c
 
 Guías y material de clase:
 
-- [Proyecto final](0. Proyecto final.md)
-- [Introducción](1. Introducción.md)
-- [Instalación herramientas de desarrollo](2. Instalación herramientas de desarrollo.md)
+- [Proyecto final](0.proyecto-final.md)
+- [Introducción](1.introduccion.md)
+- [Instalación herramientas de desarrollo](2.instalacion-herramientas-de-desarrollo.md)
