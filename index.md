@@ -5,3 +5,5 @@ Guías y material de clase:
 - [Proyecto final](0.proyecto-final.md)
 - [Introducción](1.introduccion.md)
 - [Instalación herramientas de desarrollo](2.instalacion-herramientas-de-desarrollo.md)
+- [Creación de proyecto Spring Boot con Gradle](3.proyecto-gradle.md)
+- [Diseño de APIs REST](4.apis-rest.md)
