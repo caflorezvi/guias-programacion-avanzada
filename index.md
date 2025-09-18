@@ -9,4 +9,5 @@ Guías y material de clase:
 - [Diseño de APIs REST](4.apis-rest.md)
 - [Controladores REST en Spring Boot](5.controladores-rest-SpringBoot.md)
 - [Servicios de negocio](6.servicios-negocio.md)
-- [Bases de datos SQL](8.bases-datos-sql.md)
+- [Bases de datos SQL](7.bases-datos-sql.md)
+- [Persistencia con Spring Data JPA](8.persistencia-SpringDataJPA.md)
