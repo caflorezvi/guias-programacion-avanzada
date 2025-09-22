@@ -11,3 +11,4 @@ Guías y material de clase:
 - [Servicios de negocio](6.servicios-negocio.md)
 - [Bases de datos SQL](8.bases-datos-sql.md)
 - [Representación de la información](9.representacion-informacion.md)
+- [Repositorios en Spring Data](10.repositorios.md)
