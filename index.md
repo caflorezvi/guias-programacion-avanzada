@@ -12,3 +12,4 @@ Guías y material de clase:
 - [Bases de datos SQL](8.bases-datos-sql.md)
 - [Representación de la información](9.representacion-informacion.md)
 - [Repositorios en Spring Data](10.repositorios.md)
+- [Consultas en Spring Data JPA](11.consultas.md)
