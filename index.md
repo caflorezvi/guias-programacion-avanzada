@@ -2,6 +2,8 @@ En este espacio académico estudiaremos todos los aspectos relacionados con la c
 
 Guías y material de clase:
 
+### Backend con Spring Boot:
+
 - [Proyecto final](0.proyecto-final.md)
 - [Introducción](1.introduccion.md)
 - [Instalación herramientas de desarrollo](2.instalacion-herramientas-de-desarrollo.md)
@@ -15,3 +17,8 @@ Guías y material de clase:
 - [Repositorios en Spring Data](10.repositorios.md)
 - [Consultas en Spring Data JPA](11.consultas.md)
 - [Seguridad Spring Security](12.spring-security.md)
+- [Pruebas unitarias y de integración](13.pruebas.md)
+
+### Frontend con Angular:
+
+Proximamente...
