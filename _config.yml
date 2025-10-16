@@ -1,2 +1,7 @@
 title: Programación Avanzada
 description: Guías y material de clase del espacio académico Programación Avanzada. 
+defaults:
+  - scope:
+      path: ""              # vacío = esta carpeta y sus subcarpetas
+    values:
+      render_with_liquid: false
