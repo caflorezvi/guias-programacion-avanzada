@@ -21,4 +21,5 @@ Guías y material de clase:
 
 ### Frontend con Angular:
 
-Proximamente...
+- [Configuración de Angular y creación del proyecto](14.angular.md)
+- [Formularios reactivos](15.formularios.md)
