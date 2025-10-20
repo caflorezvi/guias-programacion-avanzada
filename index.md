@@ -23,3 +23,6 @@ Guías y material de clase:
 
 - [Configuración de Angular y creación del proyecto](14.angular.md)
 - [Formularios reactivos](15.formularios.md)
+- [Maquetación y estilos CSS](16.maquetacion-css.md)
+- [Servicios en Angular](17.servicios-angular.md)
+- [Mapas con Mapbox](18.mapas.md)
