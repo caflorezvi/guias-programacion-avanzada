@@ -26,3 +26,5 @@ Guías y material de clase:
 - [Maquetación y estilos CSS](16.maquetacion-css.md)
 - [Servicios en Angular](17.servicios-angular.md)
 - [Mapas con Mapbox](18.mapas.md)
+- [Integración con la API del backend](19.integracion-backend.md)
+- [Guards e Interceptors](20.guards.md)
