@@ -1,35 +1,40 @@
-/* GitHub Theme oficial - Colores exactos de github.com */
+/* GitHub Theme - Réplica exacta de github.com */
 
 /* Bloques de código con resaltado de sintaxis */
 .highlight {
     background-color: #f6f8fa !important;
     border-radius: 6px;
-    margin: 1.5em 0;
-    border: 1px solid #d0d7de;
+    margin: 16px 0;
+    padding: 16px;
+    border: 1px solid #d1d9e0;
+    overflow: auto;
 }
 
 .highlight pre {
     background-color: transparent !important;
-    padding: 16px !important;
+    padding: 0 !important;
     margin: 0 !important;
-    overflow-x: auto;
-    line-height: 1.45 !important;
-    font-size: 14px !important;
+    overflow: visible;
+    line-height: 1.5 !important;
+    font-size: 13.6px !important;
     font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace !important;
+    word-wrap: normal;
 }
 
 .highlight pre code {
     background-color: transparent !important;
     padding: 0 !important;
-    color: #1F2328;
-    font-size: 14px !important;
-    line-height: 1.45 !important;
+    color: #24292f;
+    font-size: 13.6px !important;
+    line-height: 1.5 !important;
+    display: inline;
+    border: 0;
 }
 
 /* Código inline */
 code {
     background-color: rgba(175, 184, 193, 0.2) !important;
-    color: #1F2328 !important;
+    color: #24292f !important;
     padding: 0.2em 0.4em !important;
     border-radius: 6px !important;
     font-size: 85% !important;
@@ -44,18 +49,18 @@ code {
     font-size: 100% !important;
 }
 
-/* GitHub Theme - Colores exactos vistos en github.com */
-.highlight .c { color: #6a737d; font-style: italic; } /* Comment */
-.highlight .err { color: #cb2431; } /* Error */
-.highlight .k { color: #d73a49; } /* Keyword */
-.highlight .l { color: #032f62; } /* Literal */
-.highlight .n { color: #24292e; } /* Name */
-.highlight .o { color: #d73a49; } /* Operator */
-.highlight .p { color: #24292e; } /* Punctuation */
-.highlight .cm { color: #6a737d; font-style: italic; } /* Comment.Multiline */
-.highlight .cp { color: #6a737d; font-weight: bold; } /* Comment.Preproc */
-.highlight .c1 { color: #6a737d; font-style: italic; } /* Comment.Single */
-.highlight .cs { color: #6a737d; font-weight: bold; font-style: italic; } /* Comment.Special */
+/* GitHub Theme - Colores sutiles como en github.com */
+.highlight .c { color: #57606a; font-style: italic; } /* Comment */
+.highlight .err { color: #cf222e; } /* Error */
+.highlight .k { color: #cf222e; } /* Keyword */
+.highlight .l { color: #0a3069; } /* Literal */
+.highlight .n { color: #24292f; } /* Name */
+.highlight .o { color: #cf222e; } /* Operator */
+.highlight .p { color: #24292f; } /* Punctuation */
+.highlight .cm { color: #57606a; font-style: italic; } /* Comment.Multiline */
+.highlight .cp { color: #57606a; font-weight: bold; } /* Comment.Preproc */
+.highlight .c1 { color: #57606a; font-style: italic; } /* Comment.Single */
+.highlight .cs { color: #57606a; font-weight: bold; font-style: italic; } /* Comment.Special */
 .highlight .gd { color: #cb2431; background-color: #ffeef0; } /* Generic.Deleted */
 .highlight .ge { font-style: italic; } /* Generic.Emph */
 .highlight .gr { color: #cb2431; } /* Generic.Error */
@@ -67,13 +72,13 @@ code {
 .highlight .gu { color: #6f42c1; font-weight: bold; } /* Generic.Subheading */
 .highlight .gt { color: #cb2431; } /* Generic.Traceback */
 .highlight .kc { color: #005cc5; } /* Keyword.Constant */
-.highlight .kd { color: #d73a49; } /* Keyword.Declaration */
-.highlight .kn { color: #d73a49; } /* Keyword.Namespace */
-.highlight .kp { color: #d73a49; } /* Keyword.Pseudo */
-.highlight .kr { color: #d73a49; } /* Keyword.Reserved */
-.highlight .kt { color: #d73a49; } /* Keyword.Type */
-.highlight .m { color: #005cc5; } /* Literal.Number */
-.highlight .s { color: #032f62; } /* Literal.String */
+.highlight .kd { color: #cf222e; } /* Keyword.Declaration */
+.highlight .kn { color: #cf222e; } /* Keyword.Namespace */
+.highlight .kp { color: #cf222e; } /* Keyword.Pseudo */
+.highlight .kr { color: #cf222e; } /* Keyword.Reserved */
+.highlight .kt { color: #cf222e; } /* Keyword.Type */
+.highlight .m { color: #0550ae; } /* Literal.Number */
+.highlight .s { color: #0a3069; } /* Literal.String */
 .highlight .na { color: #6f42c1; } /* Name.Attribute */
 .highlight .nb { color: #005cc5; } /* Name.Builtin */
 .highlight .nc { color: #6f42c1; } /* Name.Class */
