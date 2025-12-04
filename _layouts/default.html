@@ -5,15 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title | default: site.title }}</title>
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-
-    <!-- Mermaid.js para diagramas -->
-    <script type="module">
-        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
-        mermaid.initialize({
-            startOnLoad: true,
-            theme: 'default'
-        });
-    </script>
 </head>
 <body>
     <div class="container-lg px-3 my-5 markdown-body">
@@ -29,5 +20,35 @@
         </div>
         {% endif %}
     </div>
+
+    <!-- Mermaid.js para diagramas -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+    <script>
+        // Configurar Mermaid
+        mermaid.initialize({
+            startOnLoad: false,
+            theme: 'default',
+            securityLevel: 'loose'
+        });
+
+        // Convertir bloques de código con clase 'language-mermaid' a diagramas Mermaid
+        document.addEventListener('DOMContentLoaded', function() {
+            // Buscar todos los bloques de código con lenguaje mermaid
+            const mermaidBlocks = document.querySelectorAll('pre code.language-mermaid');
+
+            mermaidBlocks.forEach((block, index) => {
+                // Crear un div con clase mermaid
+                const mermaidDiv = document.createElement('div');
+                mermaidDiv.className = 'mermaid';
+                mermaidDiv.textContent = block.textContent;
+
+                // Reemplazar el bloque de código con el div de mermaid
+                block.parentElement.replaceWith(mermaidDiv);
+            });
+
+            // Inicializar Mermaid después de procesar los bloques
+            mermaid.run();
+        });
+    </script>
 </body>
 </html>
