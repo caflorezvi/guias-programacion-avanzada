@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title | default: site.title }}</title>
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/syntax.css' | relative_url }}">
 
     <!-- Estilos para centrar diagramas Mermaid -->
     <style>
@@ -19,6 +18,52 @@
         .mermaid svg {
             max-width: 100%;
             height: auto;
+        }
+
+        /* Botón de copiar código */
+        .code-block-wrapper {
+            position: relative;
+        }
+
+        .copy-code-button {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            padding: 6px 12px;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 20px;
+            color: #24292f;
+            background-color: #f6f8fa;
+            border: 1px solid rgba(27, 31, 36, 0.15);
+            border-radius: 6px;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.2s, background-color 0.2s;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+        }
+
+        .code-block-wrapper:hover .copy-code-button {
+            opacity: 1;
+        }
+
+        .copy-code-button:hover {
+            background-color: #f3f4f6;
+            border-color: rgba(27, 31, 36, 0.25);
+        }
+
+        .copy-code-button:active {
+            background-color: #e5e7eb;
+        }
+
+        .copy-code-button.copied {
+            color: #0969da;
+            border-color: #0969da;
+        }
+
+        .copy-code-button svg {
+            vertical-align: text-bottom;
+            margin-right: 4px;
         }
     </style>
 </head>
@@ -64,6 +109,74 @@
 
             // Inicializar Mermaid después de procesar los bloques
             mermaid.run();
+        });
+    </script>
+
+    <!-- Botones de copiar código -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Buscar todos los bloques de código que no sean mermaid
+            const codeBlocks = document.querySelectorAll('div.highlight pre');
+
+            codeBlocks.forEach((pre) => {
+                // Crear wrapper
+                const wrapper = document.createElement('div');
+                wrapper.className = 'code-block-wrapper';
+
+                // Envolver el pre en el wrapper
+                pre.parentNode.insertBefore(wrapper, pre);
+                wrapper.appendChild(pre);
+
+                // Crear botón de copiar
+                const button = document.createElement('button');
+                button.className = 'copy-code-button';
+                button.type = 'button';
+                button.innerHTML = `
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path>
+                        <path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+                    </svg>
+                    Copy
+                `;
+
+                // Agregar evento de clic
+                button.addEventListener('click', async function() {
+                    // Obtener el texto del código
+                    const code = pre.querySelector('code');
+                    const text = code ? code.textContent : pre.textContent;
+
+                    try {
+                        // Copiar al portapapeles
+                        await navigator.clipboard.writeText(text);
+
+                        // Cambiar el texto del botón
+                        button.innerHTML = `
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
+                            </svg>
+                            Copied!
+                        `;
+                        button.classList.add('copied');
+
+                        // Restaurar después de 2 segundos
+                        setTimeout(() => {
+                            button.innerHTML = `
+                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                                    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path>
+                                    <path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
+                                </svg>
+                                Copy
+                            `;
+                            button.classList.remove('copied');
+                        }, 2000);
+                    } catch (err) {
+                        console.error('Error al copiar:', err);
+                    }
+                });
+
+                // Agregar botón al wrapper
+                wrapper.appendChild(button);
+            });
         });
     </script>
 </body>
