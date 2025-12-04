@@ -1,2 +1,15 @@
 title: Programación Avanzada
-description: Guías y material de clase del espacio académico Programación Avanzada. 
+description: Guías y material de clase del espacio académico Programación Avanzada.
+
+# Configuración de kramdown para manejar bloques de código correctamente
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+
+# Deshabilitar el procesamiento de Liquid en bloques de código
+liquid:
+  error_mode: strict
+  strict_filters: false
+  strict_variables: false
