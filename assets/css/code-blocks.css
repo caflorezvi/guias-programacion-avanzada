@@ -1,83 +1,113 @@
-/* Mejoras para bloques de código - Tema sobrio y profesional */
+/* GitHub Theme oficial - Colores exactos de github.com */
 
 /* Bloques de código con resaltado de sintaxis */
 .highlight {
-    background-color: #fafbfc !important;
+    background-color: #f6f8fa !important;
     border-radius: 6px;
     margin: 1.5em 0;
     border: 1px solid #d0d7de;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .highlight pre {
     background-color: transparent !important;
-    padding: 20px !important;
+    padding: 16px !important;
     margin: 0 !important;
     overflow-x: auto;
-    line-height: 1.7 !important;
+    line-height: 1.45 !important;
     font-size: 14px !important;
-    font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Source Code Pro', 'Menlo', monospace !important;
-    font-weight: 400;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace !important;
 }
 
 .highlight pre code {
     background-color: transparent !important;
     padding: 0 !important;
-    color: #1f2328;
+    color: #1F2328;
     font-size: 14px !important;
-    line-height: 1.7 !important;
+    line-height: 1.45 !important;
 }
 
 /* Código inline */
 code {
-    background-color: #f6f8fa !important;
-    color: #57606a !important;
-    padding: 3px 7px !important;
-    border-radius: 3px !important;
-    font-size: 13px !important;
-    font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Source Code Pro', 'Menlo', monospace !important;
-    border: 1px solid #d0d7de;
-    font-weight: 400;
+    background-color: rgba(175, 184, 193, 0.2) !important;
+    color: #1F2328 !important;
+    padding: 0.2em 0.4em !important;
+    border-radius: 6px !important;
+    font-size: 85% !important;
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace !important;
 }
 
 /* Evitar estilos duplicados en código dentro de highlight */
 .highlight code {
     background-color: transparent !important;
-    border: none !important;
     padding: 0 !important;
     color: inherit !important;
+    font-size: 100% !important;
 }
 
-/* Colores apagados y profesionales - Paleta de grises con toques sutiles */
-.highlight .c { color: #8b949e; font-style: italic; } /* Comentarios - gris medio */
-.highlight .k { color: #1f2328; font-weight: 600; } /* Keywords - gris oscuro, peso fuerte */
-.highlight .kd { color: #1f2328; font-weight: 600; } /* Keyword.Declaration */
-.highlight .kn { color: #1f2328; font-weight: 600; } /* Keyword.Namespace */
-.highlight .kp { color: #1f2328; font-weight: 600; } /* Keyword.Pseudo */
-.highlight .kr { color: #1f2328; font-weight: 600; } /* Keyword.Reserved */
-.highlight .kt { color: #1f2328; font-weight: 600; } /* Keyword.Type */
-.highlight .s { color: #4d5761; } /* Strings - gris oscuro apagado */
-.highlight .s1 { color: #4d5761; } /* String.Single */
-.highlight .s2 { color: #4d5761; } /* String.Double */
-.highlight .sb { color: #4d5761; } /* String.Backtick */
-.highlight .sc { color: #4d5761; } /* String.Char */
-.highlight .sd { color: #4d5761; } /* String.Doc */
-.highlight .mi { color: #57606a; } /* Number - gris medio */
-.highlight .m { color: #57606a; } /* Number */
-.highlight .mf { color: #57606a; } /* Number.Float */
-.highlight .mh { color: #57606a; } /* Number.Hex */
-.highlight .nf { color: #24292f; font-weight: 500; } /* Function - gris muy oscuro */
-.highlight .nc { color: #24292f; font-weight: 600; } /* Class - gris muy oscuro, peso fuerte */
-.highlight .nt { color: #116329; } /* Tag - verde apagado */
-.highlight .na { color: #3d444d; } /* Attribute - gris oscuro */
-.highlight .o { color: #57606a; } /* Operator - gris medio */
-.highlight .p { color: #57606a; } /* Punctuation - gris medio */
-.highlight .n { color: #24292f; } /* Name - gris muy oscuro */
-.highlight .nb { color: #24292f; } /* Name.Builtin */
-.highlight .nd { color: #3d444d; } /* Name.Decorator */
-.highlight .ne { color: #3d444d; } /* Name.Exception */
-.highlight .nn { color: #3d444d; } /* Name.Namespace */
-.highlight .nx { color: #24292f; } /* Name.Other */
+/* GitHub Theme - Colores oficiales */
+.highlight .c { color: #6E7781; font-style: italic; } /* Comment */
+.highlight .err { color: #82071E; } /* Error */
+.highlight .k { color: #CF222E; } /* Keyword */
+.highlight .l { color: #0A3069; } /* Literal */
+.highlight .n { color: #1F2328; } /* Name */
+.highlight .o { color: #CF222E; } /* Operator */
+.highlight .p { color: #1F2328; } /* Punctuation */
+.highlight .cm { color: #6E7781; font-style: italic; } /* Comment.Multiline */
+.highlight .cp { color: #6E7781; font-weight: bold; } /* Comment.Preproc */
+.highlight .c1 { color: #6E7781; font-style: italic; } /* Comment.Single */
+.highlight .cs { color: #6E7781; font-weight: bold; font-style: italic; } /* Comment.Special */
+.highlight .gd { color: #82071E; background-color: #FFEBE9; } /* Generic.Deleted */
+.highlight .ge { font-style: italic; } /* Generic.Emph */
+.highlight .gr { color: #82071E; } /* Generic.Error */
+.highlight .gh { color: #0550AE; font-weight: bold; } /* Generic.Heading */
+.highlight .gi { color: #116329; background-color: #DAFBE1; } /* Generic.Inserted */
+.highlight .go { color: #57606A; } /* Generic.Output */
+.highlight .gp { color: #57606A; } /* Generic.Prompt */
+.highlight .gs { font-weight: bold; } /* Generic.Strong */
+.highlight .gu { color: #8250DF; font-weight: bold; } /* Generic.Subheading */
+.highlight .gt { color: #82071E; } /* Generic.Traceback */
+.highlight .kc { color: #0550AE; } /* Keyword.Constant */
+.highlight .kd { color: #CF222E; } /* Keyword.Declaration */
+.highlight .kn { color: #CF222E; } /* Keyword.Namespace */
+.highlight .kp { color: #CF222E; } /* Keyword.Pseudo */
+.highlight .kr { color: #CF222E; } /* Keyword.Reserved */
+.highlight .kt { color: #CF222E; } /* Keyword.Type */
+.highlight .m { color: #0550AE; } /* Literal.Number */
+.highlight .s { color: #0A3069; } /* Literal.String */
+.highlight .na { color: #8250DF; } /* Name.Attribute */
+.highlight .nb { color: #953800; } /* Name.Builtin */
+.highlight .nc { color: #953800; } /* Name.Class */
+.highlight .no { color: #0550AE; } /* Name.Constant */
+.highlight .nd { color: #8250DF; } /* Name.Decorator */
+.highlight .ni { color: #0550AE; } /* Name.Entity */
+.highlight .ne { color: #953800; } /* Name.Exception */
+.highlight .nf { color: #8250DF; } /* Name.Function */
+.highlight .nl { color: #0550AE; } /* Name.Label */
+.highlight .nn { color: #953800; } /* Name.Namespace */
+.highlight .nt { color: #116329; } /* Name.Tag */
+.highlight .nv { color: #0550AE; } /* Name.Variable */
+.highlight .ow { color: #CF222E; font-weight: bold; } /* Operator.Word */
+.highlight .w { color: #6E7781; } /* Text.Whitespace */
+.highlight .mf { color: #0550AE; } /* Literal.Number.Float */
+.highlight .mh { color: #0550AE; } /* Literal.Number.Hex */
+.highlight .mi { color: #0550AE; } /* Literal.Number.Integer */
+.highlight .mo { color: #0550AE; } /* Literal.Number.Oct */
+.highlight .sb { color: #0A3069; } /* Literal.String.Backtick */
+.highlight .sc { color: #0A3069; } /* Literal.String.Char */
+.highlight .sd { color: #0A3069; } /* Literal.String.Doc */
+.highlight .s2 { color: #0A3069; } /* Literal.String.Double */
+.highlight .se { color: #0A3069; } /* Literal.String.Escape */
+.highlight .sh { color: #0A3069; } /* Literal.String.Heredoc */
+.highlight .si { color: #0A3069; } /* Literal.String.Interpol */
+.highlight .sx { color: #0A3069; } /* Literal.String.Other */
+.highlight .sr { color: #0A3069; } /* Literal.String.Regex */
+.highlight .s1 { color: #0A3069; } /* Literal.String.Single */
+.highlight .ss { color: #0550AE; } /* Literal.String.Symbol */
+.highlight .bp { color: #953800; } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #0550AE; } /* Name.Variable.Class */
+.highlight .vg { color: #0550AE; } /* Name.Variable.Global */
+.highlight .vi { color: #0550AE; } /* Name.Variable.Instance */
+.highlight .il { color: #0550AE; } /* Literal.Number.Integer.Long */
 
 /* Scroll horizontal suave */
 .highlight pre::-webkit-scrollbar {
