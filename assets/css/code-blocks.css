@@ -1,11 +1,12 @@
-/* Mejoras para bloques de código */
+/* Mejoras para bloques de código - Tema sobrio y profesional */
 
 /* Bloques de código con resaltado de sintaxis */
 .highlight {
-    background-color: #f8f9fa !important;
-    border-radius: 8px;
+    background-color: #fafbfc !important;
+    border-radius: 6px;
     margin: 1.5em 0;
-    border: 1px solid #e1e4e8;
+    border: 1px solid #d0d7de;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .highlight pre {
@@ -13,28 +14,30 @@
     padding: 20px !important;
     margin: 0 !important;
     overflow-x: auto;
-    line-height: 1.6 !important;
+    line-height: 1.7 !important;
     font-size: 14px !important;
-    font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
+    font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Source Code Pro', 'Menlo', monospace !important;
+    font-weight: 400;
 }
 
 .highlight pre code {
     background-color: transparent !important;
     padding: 0 !important;
-    color: #24292e;
+    color: #1f2328;
     font-size: 14px !important;
-    line-height: 1.6 !important;
+    line-height: 1.7 !important;
 }
 
 /* Código inline */
 code {
-    background-color: #f3f4f6 !important;
-    color: #e83e8c !important;
-    padding: 3px 6px !important;
-    border-radius: 4px !important;
+    background-color: #f6f8fa !important;
+    color: #57606a !important;
+    padding: 3px 7px !important;
+    border-radius: 3px !important;
     font-size: 13px !important;
-    font-family: 'Consolas', 'Monaco', 'Courier New', monospace !important;
-    border: 1px solid #e1e4e8;
+    font-family: 'JetBrains Mono', 'Fira Code', 'SF Mono', 'Source Code Pro', 'Menlo', monospace !important;
+    border: 1px solid #d0d7de;
+    font-weight: 400;
 }
 
 /* Evitar estilos duplicados en código dentro de highlight */
@@ -45,21 +48,36 @@ code {
     color: inherit !important;
 }
 
-/* Colores de sintaxis más suaves */
-.highlight .c { color: #6a737d; font-style: italic; } /* Comentarios */
-.highlight .k { color: #d73a49; font-weight: 500; } /* Keywords */
-.highlight .kd { color: #d73a49; font-weight: 500; } /* Keyword.Declaration */
-.highlight .s { color: #032f62; } /* Strings */
-.highlight .s1 { color: #032f62; } /* String.Single */
-.highlight .s2 { color: #032f62; } /* String.Double */
-.highlight .mi { color: #005cc5; } /* Number */
-.highlight .m { color: #005cc5; } /* Number */
-.highlight .nf { color: #6f42c1; font-weight: 500; } /* Function */
-.highlight .nc { color: #6f42c1; font-weight: 500; } /* Class */
-.highlight .nt { color: #22863a; } /* Tag */
-.highlight .na { color: #6f42c1; } /* Attribute */
-.highlight .o { color: #d73a49; } /* Operator */
-.highlight .p { color: #24292e; } /* Punctuation */
+/* Colores apagados y profesionales - Paleta de grises con toques sutiles */
+.highlight .c { color: #8b949e; font-style: italic; } /* Comentarios - gris medio */
+.highlight .k { color: #1f2328; font-weight: 600; } /* Keywords - gris oscuro, peso fuerte */
+.highlight .kd { color: #1f2328; font-weight: 600; } /* Keyword.Declaration */
+.highlight .kn { color: #1f2328; font-weight: 600; } /* Keyword.Namespace */
+.highlight .kp { color: #1f2328; font-weight: 600; } /* Keyword.Pseudo */
+.highlight .kr { color: #1f2328; font-weight: 600; } /* Keyword.Reserved */
+.highlight .kt { color: #1f2328; font-weight: 600; } /* Keyword.Type */
+.highlight .s { color: #4d5761; } /* Strings - gris oscuro apagado */
+.highlight .s1 { color: #4d5761; } /* String.Single */
+.highlight .s2 { color: #4d5761; } /* String.Double */
+.highlight .sb { color: #4d5761; } /* String.Backtick */
+.highlight .sc { color: #4d5761; } /* String.Char */
+.highlight .sd { color: #4d5761; } /* String.Doc */
+.highlight .mi { color: #57606a; } /* Number - gris medio */
+.highlight .m { color: #57606a; } /* Number */
+.highlight .mf { color: #57606a; } /* Number.Float */
+.highlight .mh { color: #57606a; } /* Number.Hex */
+.highlight .nf { color: #24292f; font-weight: 500; } /* Function - gris muy oscuro */
+.highlight .nc { color: #24292f; font-weight: 600; } /* Class - gris muy oscuro, peso fuerte */
+.highlight .nt { color: #116329; } /* Tag - verde apagado */
+.highlight .na { color: #3d444d; } /* Attribute - gris oscuro */
+.highlight .o { color: #57606a; } /* Operator - gris medio */
+.highlight .p { color: #57606a; } /* Punctuation - gris medio */
+.highlight .n { color: #24292f; } /* Name - gris muy oscuro */
+.highlight .nb { color: #24292f; } /* Name.Builtin */
+.highlight .nd { color: #3d444d; } /* Name.Decorator */
+.highlight .ne { color: #3d444d; } /* Name.Exception */
+.highlight .nn { color: #3d444d; } /* Name.Namespace */
+.highlight .nx { color: #24292f; } /* Name.Other */
 
 /* Scroll horizontal suave */
 .highlight pre::-webkit-scrollbar {
