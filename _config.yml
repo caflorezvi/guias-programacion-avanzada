@@ -1,6 +1,9 @@
 title: Programación Avanzada
 description: Guías y material de clase del espacio académico Programación Avanzada.
 
+# Tema de GitHub Pages (mismo estilo que github.com usa para mostrar .md)
+theme: jekyll-theme-primer
+
 # Configuración de kramdown para manejar bloques de código correctamente
 kramdown:
   input: GFM
