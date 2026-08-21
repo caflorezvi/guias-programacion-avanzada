@@ -14,50 +14,50 @@ En este espacio académico estudiaremos todos los aspectos relacionados con la c
 
 ### Backend con Spring Boot
 
-| # | Guía |
-|---|------|
-| 00 | [Proyecto final](00.proyecto-final.md) |
-| 01 | [Introducción](01.introduccion.md) |
-| 02 | [Instalación de herramientas de desarrollo](02.instalacion-herramientas-de-desarrollo.md) |
-| 03 | [Creación de proyecto Spring Boot con Gradle](03.proyecto-gradle.md) |
-| 04 | [Diseño de APIs REST](04.apis-rest.md) |
-| 05 | [Controladores REST en Spring Boot](05.controladores-rest-SpringBoot.md) |
-| 06 | [Servicios de negocio](06.servicios-negocio.md) |
-| 07 | [Servicios externos](07.servicios-externos.md) |
-| 08 | [Bases de datos SQL](08.bases-datos-sql.md) |
-| 09 | [Representación de la información](09.representacion-informacion.md) |
-| 10 | [Repositorios en Spring Data](10.repositorios.md) |
-| 11 | [Consultas en Spring Data JPA](11.consultas.md) |
-| 12 | [Seguridad con Spring Security](12.spring-security.md) |
-| 13 | [Pruebas unitarias y de integración](13.pruebas.md) |
+| #   | Guía                                                                                      |
+| --- | ----------------------------------------------------------------------------------------- |
+| 00  | [Proyecto final](00.proyecto-final.md)                                                    |
+| 01  | [Introducción](01.introduccion.md)                                                        |
+| 02  | [Instalación de herramientas de desarrollo](02.instalacion-herramientas-de-desarrollo.md) |
+| 03  | [Creación de proyecto Spring Boot con Gradle](03.proyecto-gradle.md)                      |
+| 04  | [Diseño de APIs REST](04.apis-rest.md)                                                    |
+| 05  | [Controladores REST en Spring Boot](05.controladores-rest-SpringBoot.md)                  |
+| 06  | [Servicios de negocio](06.servicios-negocio.md)                                           |
+| 07  | [Servicios externos](07.servicios-externos.md)                                            |
+| 08  | [Bases de datos SQL](08.bases-datos-sql.md)                                               |
+| 09  | [Representación de la información](09.representacion-informacion.md)                      |
+| 10  | [Repositorios en Spring Data](10.repositorios.md)                                         |
+| 11  | [Consultas en Spring Data JPA](11.consultas.md)                                           |
+| 12  | [Seguridad con Spring Security](12.spring-security.md)                                    |
+| 13  | [Pruebas unitarias y de integración](13.pruebas.md)                                       |
 
 ### Frontend con Angular
 
-| # | Guía |
-|---|------|
-| 14 | [Configuración de Angular y creación del proyecto](14.angular.md) |
-| 15 | [Formularios reactivos](15.formularios.md) |
-| 16 | [Maquetación y estilos CSS](16.maquetacion-css.md) |
-| 17 | [Servicios en Angular](17.servicios-angular.md) |
-| 18 | [Mapas con Mapbox](18.mapas.md) |
-| 19 | [Integración con la API del backend](19.integracion-backend.md) |
-| 20 | [Guards e Interceptors](20.guards.md) |
+| #   | Guía                                                              |
+| --- | ----------------------------------------------------------------- |
+| 14  | [Configuración de Angular y creación del proyecto](14.angular.md) |
+| 15  | [Formularios reactivos](15.formularios.md)                        |
+| 16  | [Maquetación y estilos CSS](16.maquetacion-css.md)                |
+| 17  | [Servicios en Angular](17.servicios-angular.md)                   |
+| 18  | [Mapas con Mapbox](18.mapas.md)                                   |
+| 19  | [Integración con la API del backend](19.integracion-backend.md)   |
+| 20  | [Guards e Interceptors](20.guards.md)                             |
 
 ### Despliegue
 
-| # | Guía |
-|---|------|
-| 21 | [Despliegue en la nube](21.despliegue.md) |
+| #   | Guía                                      |
+| --- | ----------------------------------------- |
+| 21  | [Despliegue en la nube](21.despliegue.md) |
 
 ## Tecnologías
 
-| Área | Herramientas |
-|------|--------------|
-| Backend | Java (JDK 21), Spring Boot, Spring Data JPA, Spring Security, Gradle |
-| Frontend | Angular, TypeScript, Angular CLI, NodeJS, Mapbox |
-| Bases de datos | PostgreSQL, MySQL, MongoDB |
-| Pruebas | JUnit, Mockito |
-| Despliegue | Docker, Render, Railway, Vercel |
+| Área           | Herramientas                                                         |
+| -------------- | -------------------------------------------------------------------- |
+| Backend        | Java (JDK 21), Spring Boot, Spring Data JPA, Spring Security, Gradle |
+| Frontend       | Angular, TypeScript, Angular CLI, NodeJS, Mapbox                     |
+| Bases de datos | PostgreSQL, MySQL, MongoDB                                           |
+| Pruebas        | JUnit, Mockito                                                       |
+| Despliegue     | Docker, Render, Railway, Vercel                                      |
 
 ## Cómo usar este material
 
@@ -68,11 +68,11 @@ En este espacio académico estudiaremos todos los aspectos relacionados con la c
 
 ## Cómo citar
 
-> Flórez Villegas, C. A. *Programación Avanzada: guías y material de clase*. Universidad del Quindío. https://doi.org/10.5281/zenodo.22050596
+> Flórez Villarraga, C. A. *Programación Avanzada: guías y material de clase*. Universidad del Quindío. https://doi.org/10.5281/zenodo.22050596
 
 ```bibtex
 @misc{florez_programacion_avanzada,
-  author    = {Flórez Villegas, Carlos Andrés},
+  author    = {Flórez Villarraga, Carlos Andrés},
   title     = {Programación Avanzada: guías y material de clase},
   publisher = {Zenodo},
   doi       = {10.5281/zenodo.22050596},
