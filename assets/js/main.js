@@ -223,4 +223,61 @@
       pre.classList.add('bloque-traza');
     }
   });
+
+  // 7. Groovy/Gradle: igualar los colores de github.com.
+  // Rouge marca toda la puntuación como operador (.o) y los tipos como nombres (.n);
+  // GitHub pinta en rojo solo los operadores reales (= .) y los tipos (JavaLanguageVersion).
+  contenido.querySelectorAll('.language-groovy .highlight, .language-gradle .highlight').forEach(bloque => {
+    bloque.querySelectorAll('.o').forEach(token => {
+      if (/^[(){}\[\],;\s]+$/.test(token.textContent)) token.className = 'p';
+    });
+    bloque.querySelectorAll('.n').forEach(token => {
+      if (/^[A-Z]/.test(token.textContent)) token.className = 'kt';
+    });
+  });
+
+  // 8. TypeScript: igualar los colores de github.com.
+  // Rouge marca casi todos los identificadores como .nx; GitHub los distingue por contexto:
+  // llamadas en morado, tipos/clases en naranja, propiedades y constantes en azul,
+  // y deja this, string, number y any en color de texto.
+  const tipoPrevio = /^(:|<|\||class|interface|as|implements|extends)$/;
+  contenido.querySelectorAll('.language-typescript .highlight, .language-ts .highlight').forEach(bloque => {
+    const tokens = Array.from(bloque.querySelectorAll('pre span'))
+      .filter(s => s.textContent.trim() !== '');
+    tokens.forEach((token, i) => {
+      const v = token.textContent.trim();
+      const prev = i > 0 ? tokens[i - 1].textContent.trim() : '';
+      const next = i < tokens.length - 1 ? tokens[i + 1].textContent.trim() : '';
+      const despues = i < tokens.length - 2 ? tokens[i + 2].textContent.trim() : '';
+      const llamada = next.startsWith('(');
+      const mayus = /^[A-Z]/.test(v);
+      switch (token.className) {
+        case 'k':
+          if (v === 'this') token.className = 'n';
+          else if (prev.endsWith('.') && llamada) token.className = 'nf';
+          break;
+        case 'kr':
+          if (/^(string|number|any|boolean)$/.test(v)) token.className = 'n';
+          break;
+        case 'kd':
+          if (v === 'constructor' || (prev.endsWith('.') && (llamada || next.startsWith('<')))) token.className = 'nf';
+          break;
+        case 'na': {
+          // Propiedad cuyo valor es una función flecha: next: (data) => ...
+          const valor = next.length > 1 ? next.slice(1).trim() : despues;
+          if (next.startsWith(':') && valor.startsWith('(')) token.className = 'nf';
+          break;
+        }
+        case 'nx':
+        case 'nb':
+          if (/^[A-Z][A-Z0-9_]+$/.test(v)) token.className = 'no';
+          else if (prev.endsWith('.')) token.className = !mayus && (llamada || next.startsWith('<')) ? 'nf' : 'no';
+          else if (llamada) token.className = mayus && prev === 'new' ? 'nv' : 'nf';
+          else if (mayus) token.className = tipoPrevio.test(prev) || prev.endsWith(':') || prev.endsWith('<') ? 'n' : 'nv';
+          else if (/^(private|public|protected|readonly)$/.test(prev) && next.startsWith('=')) token.className = 'no';
+          else token.className = 'n';
+          break;
+      }
+    });
+  });
 })();

@@ -473,12 +473,22 @@ body {
 .highlight .ni { color: var(--hl-constante); }
 .highlight .nl { color: var(--hl-constante); }
 
-/* En Java y TypeScript, .na son llamadas a métodos (usuario.getNombre()) */
-.language-java .highlight .na,
+/* En Java, .na son llamadas a métodos (usuario.getNombre()) */
+.language-java .highlight .na { color: var(--hl-funcion); }
+
+/* TypeScript: igual que en github.com.
+   Operadores (= => < !) y propiedades (templateUrl:, this.form) en azul.
+   main.js reclasifica identificadores: llamadas .nf, tipos .nv, propiedades .no. */
+.language-typescript .highlight .o,
+.language-ts .highlight .o,
 .language-typescript .highlight .na,
-.language-ts .highlight .na,
+.language-ts .highlight .na { color: var(--hl-constante); }
+
+/* Groovy/Gradle: igual que en github.com.
+   Llamadas a métodos (tasks.named, JavaLanguageVersion.of) en color de texto;
+   la puntuación se reclasifica como .p y los tipos como .kt desde main.js. */
 .language-groovy .highlight .na,
-.language-gradle .highlight .na { color: var(--hl-funcion); }
+.language-gradle .highlight .na { color: var(--hl-texto); }
 
 /* Java: igual que en github.com.
    Rouge marca la puntuación (; ( ) { } .) como operador y los tipos como .nc/.kt;
