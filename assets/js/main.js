@@ -205,12 +205,11 @@
     if (siguiente && /^(UL|OL)$/.test(siguiente.tagName)) cuerpo.appendChild(siguiente);
   });
 
-  // 4b. "Ejecute (nuevamente) la aplicación / el proyecto...": bloque pista fijo,
-  // sin etiqueta ni botón para plegar
+  // 4b. Párrafo marcado en la guía con 🚀 al inicio ("🚀 Ejecute la aplicación..."):
+  // bloque pista fijo, sin etiqueta ni botón para plegar
   contenido.querySelectorAll('p').forEach(p => {
     if (p.parentElement.closest('li, blockquote, .pista')) return;
-    const texto = p.textContent.trim();
-    if (!/^(🚀\s*)?Ejecute (nuevamente )?(la aplicación|el proyecto|su aplicación)/i.test(texto)) return;
+    if (!/^🚀/.test(p.textContent.trim())) return;
     // El 🚀 lo pone el CSS en todos los bloques: se quita si ya viene en el texto
     const primerTexto = document.createTreeWalker(p, NodeFilter.SHOW_TEXT).nextNode();
     if (primerTexto) primerTexto.textContent = primerTexto.textContent.replace(/^\s*🚀\s*/, '');

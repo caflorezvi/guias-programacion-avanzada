@@ -945,7 +945,7 @@ body {
   margin: 0;
 }
 
-/* 4b. Pista fija ("Ejecute la aplicación..."): mismo cajón verde con 🚀, sin botón */
+/* 4b. Pista fija (párrafo que empieza con 🚀 en la guía): mismo cajón verde con 🚀, sin botón */
 .content div.pista {
   margin: 1.5rem 0;
   padding: 0.8rem 1.1rem;
