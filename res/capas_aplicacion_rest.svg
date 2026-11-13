@@ -1,51 +1,77 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 730" font-family="Helvetica, Arial, sans-serif" role="img" aria-label="Arquitectura de una aplicación REST">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 780" font-family="Helvetica, Arial, sans-serif" role="img" aria-label="Arquitectura de una aplicación REST">
   <title>Arquitectura de una aplicación REST</title>
-  <desc>Capas de una aplicación REST en Spring Boot: cliente, controlador, servicio, repositorio y entidad, y base de datos, con el tipo de comunicación entre cada par.</desc>
+  <desc>Capas de una aplicación REST en Spring Boot. Por cada recurso (usuarios, alojamientos, reseñas) hay un controlador, un servicio, un repositorio y una entidad; todos comparten la aplicación cliente y la base de datos.</desc>
   <defs>
     <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#888780"/></marker>
     <marker id="herencia" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L12 6L0 12z" fill="#ffffff" stroke="#5F5E5A" stroke-width="1"/></marker>
   </defs>
-  <rect x="20" y="20" width="640" height="80" rx="10" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5" fill-opacity="0.45"/>
-  <text x="34" y="40" text-anchor="start" fill="#534AB7" font-size="10" font-weight="600">PRESENTACIÓN</text>
-  <rect x="20" y="150" width="640" height="80" rx="10" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5" fill-opacity="0.45"/>
-  <text x="34" y="170" text-anchor="start" fill="#185FA5" font-size="10" font-weight="600">API</text>
-  <rect x="20" y="280" width="640" height="80" rx="10" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5" fill-opacity="0.45"/>
-  <text x="34" y="300" text-anchor="start" fill="#0F6E56" font-size="10" font-weight="600">NEGOCIO</text>
-  <rect x="20" y="410" width="640" height="170" rx="10" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5" fill-opacity="0.45"/>
-  <text x="34" y="430" text-anchor="start" fill="#854F0B" font-size="10" font-weight="600">ACCESO A DATOS</text>
-  <rect x="20" y="630" width="640" height="85" rx="10" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5" fill-opacity="0.45"/>
-  <text x="34" y="650" text-anchor="start" fill="#5F5E5A" font-size="10" font-weight="600">ALMACENAMIENTO</text>
-  <rect x="240" y="33" width="200" height="54" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
-  <text x="340" y="56.5" text-anchor="middle" fill="#3C3489" font-size="13" font-weight="500">Aplicación cliente</text>
-  <text x="340" y="71.5" text-anchor="middle" fill="#534AB7" font-size="11">web / móvil</text>
-  <rect x="240" y="163" width="200" height="54" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
-  <text x="340" y="186.5" text-anchor="middle" fill="#0C447C" font-size="13" font-weight="500">Controlador</text>
-  <text x="340" y="201.5" text-anchor="middle" fill="#185FA5" font-size="11">mapeo de peticiones y respuestas</text>
-  <rect x="240" y="293" width="200" height="54" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
-  <text x="340" y="316.5" text-anchor="middle" fill="#04342C" font-size="13" font-weight="500">Servicio</text>
-  <text x="340" y="331.5" text-anchor="middle" fill="#0F6E56" font-size="11">lógica de negocio</text>
-  <rect x="240" y="423" width="200" height="54" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
-  <text x="340" y="446.5" text-anchor="middle" fill="#412402" font-size="13" font-weight="500">Repositorio</text>
-  <text x="340" y="461.5" text-anchor="middle" fill="#854F0B" font-size="11">consultas a la base de datos</text>
-  <rect x="240" y="513" width="200" height="54" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
-  <text x="340" y="536.5" text-anchor="middle" fill="#412402" font-size="13" font-weight="500">Modelo / Entidad</text>
-  <text x="340" y="551.5" text-anchor="middle" fill="#854F0B" font-size="11">objetos de dominio</text>
-  <path d="M260 647 A80 10 0 0 0 420 647 V697 A80 10 0 0 1 260 697 Z" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
-  <ellipse cx="340" cy="647" rx="80" ry="10" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
-  <text x="340" y="673.5" text-anchor="middle" fill="#2C2C2A" font-size="13" font-weight="500">Base de datos</text>
-  <text x="340" y="688.5" text-anchor="middle" fill="#5F5E5A" font-size="11">almacenamiento persistente</text>
-  <path d="M340 89 L340 161" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
-  <text x="352" y="123" text-anchor="start" fill="#444441" font-size="11">HTTP / REST</text>
-  <text x="352" y="137" text-anchor="start" fill="#5F5E5A" font-size="10">peticiones JSON</text>
-  <path d="M340 219 L340 291" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
-  <text x="352" y="253" text-anchor="start" fill="#444441" font-size="11">Llamadas a métodos</text>
-  <text x="352" y="267" text-anchor="start" fill="#5F5E5A" font-size="10">DTOs</text>
-  <path d="M340 349 L340 421" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
-  <text x="352" y="383" text-anchor="start" fill="#444441" font-size="11">Patrón repositorio</text>
-  <text x="352" y="397" text-anchor="start" fill="#5F5E5A" font-size="10">entidades de negocio</text>
-  <path d="M340 479 L340 511" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
-  <text x="352" y="499" text-anchor="start" fill="#444441" font-size="11">ORM / SQL</text>
-  <path d="M340 569 L340 635" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
-  <text x="352" y="600" text-anchor="start" fill="#444441" font-size="11">Consultas</text>
-  <text x="352" y="614" text-anchor="start" fill="#5F5E5A" font-size="10">operaciones CRUD</text>
+  <rect x="20" y="20" width="720" height="90" rx="10" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5" fill-opacity="0.45"/>
+  <text x="530" y="69" text-anchor="start" fill="#534AB7" font-size="10" font-weight="600">PRESENTACIÓN</text>
+  <rect x="20" y="160" width="720" height="90" rx="10" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5" fill-opacity="0.45"/>
+  <text x="530" y="202" text-anchor="start" fill="#185FA5" font-size="10" font-weight="600">API</text>
+  <text x="530" y="217" text-anchor="start" fill="#185FA5" font-size="11">un controlador por recurso</text>
+  <rect x="20" y="300" width="720" height="90" rx="10" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5" fill-opacity="0.45"/>
+  <text x="530" y="342" text-anchor="start" fill="#0F6E56" font-size="10" font-weight="600">NEGOCIO</text>
+  <text x="530" y="357" text-anchor="start" fill="#0F6E56" font-size="11">un servicio por recurso</text>
+  <rect x="20" y="440" width="720" height="174" rx="10" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5" fill-opacity="0.45"/>
+  <text x="530" y="517" text-anchor="start" fill="#854F0B" font-size="10" font-weight="600">ACCESO A DATOS</text>
+  <text x="530" y="532" text-anchor="start" fill="#854F0B" font-size="11">un repositorio y una</text>
+  <text x="530" y="546" text-anchor="start" fill="#854F0B" font-size="11">entidad por recurso</text>
+  <rect x="20" y="664" width="720" height="100" rx="10" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5" fill-opacity="0.45"/>
+  <text x="530" y="718" text-anchor="start" fill="#5F5E5A" font-size="10" font-weight="600">ALMACENAMIENTO</text>
+  <rect x="40" y="52" width="460" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text x="270" y="70.5" text-anchor="middle" fill="#3C3489" font-size="13" font-weight="500">Aplicación cliente</text>
+  <text x="270" y="85.5" text-anchor="middle" fill="#534AB7" font-size="11">web / móvil</text>
+  <rect x="40" y="192" width="140" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text x="110" y="218" text-anchor="middle" fill="#0C447C" font-size="13" font-weight="500">UserController</text>
+  <rect x="200" y="192" width="140" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text x="270" y="218" text-anchor="middle" fill="#0C447C" font-size="13" font-weight="500">PlaceController</text>
+  <rect x="360" y="192" width="140" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text x="430" y="218" text-anchor="middle" fill="#0C447C" font-size="13" font-weight="500">ReviewController</text>
+  <rect x="40" y="332" width="140" height="44" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="110" y="358" text-anchor="middle" fill="#04342C" font-size="13" font-weight="500">UserService</text>
+  <rect x="200" y="332" width="140" height="44" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="270" y="358" text-anchor="middle" fill="#04342C" font-size="13" font-weight="500">PlaceService</text>
+  <rect x="360" y="332" width="140" height="44" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="430" y="358" text-anchor="middle" fill="#04342C" font-size="13" font-weight="500">ReviewService</text>
+  <rect x="40" y="472" width="140" height="44" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="110" y="498" text-anchor="middle" fill="#412402" font-size="13" font-weight="500">UserRepository</text>
+  <rect x="200" y="472" width="140" height="44" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="270" y="498" text-anchor="middle" fill="#412402" font-size="13" font-weight="500">PlaceRepository</text>
+  <rect x="360" y="472" width="140" height="44" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="430" y="498" text-anchor="middle" fill="#412402" font-size="13" font-weight="500">ReviewRepository</text>
+  <rect x="40" y="556" width="140" height="44" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="110" y="582" text-anchor="middle" fill="#412402" font-size="13" font-weight="500">User</text>
+  <rect x="200" y="556" width="140" height="44" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="270" y="582" text-anchor="middle" fill="#412402" font-size="13" font-weight="500">Place</text>
+  <rect x="360" y="556" width="140" height="44" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="430" y="582" text-anchor="middle" fill="#412402" font-size="13" font-weight="500">Review</text>
+  <path d="M40 696 A230 10 0 0 0 500 696 V740 A230 10 0 0 1 40 740 Z" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <ellipse cx="270" cy="696" rx="230" ry="10" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text x="270" y="719.5" text-anchor="middle" fill="#2C2C2A" font-size="13" font-weight="500">Base de datos</text>
+  <text x="270" y="734.5" text-anchor="middle" fill="#5F5E5A" font-size="11">almacenamiento persistente</text>
+  <path d="M110 98 L110 190" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <path d="M270 98 L270 190" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <path d="M430 98 L430 190" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <path d="M110 238 L110 330" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <path d="M270 238 L270 330" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <path d="M430 238 L430 330" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <path d="M110 378 L110 470" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <path d="M270 378 L270 470" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <path d="M430 378 L430 470" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <path d="M110 518 L110 554" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <path d="M270 518 L270 554" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <path d="M430 518 L430 554" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <path d="M110 602 L110 682" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <path d="M270 602 L270 682" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <path d="M430 602 L430 682" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <text x="530" y="142" text-anchor="start" fill="#444441" font-size="11">HTTP / REST</text>
+  <text x="530" y="156" text-anchor="start" fill="#5F5E5A" font-size="10">peticiones JSON</text>
+  <text x="530" y="282" text-anchor="start" fill="#444441" font-size="11">Llamadas a métodos</text>
+  <text x="530" y="296" text-anchor="start" fill="#5F5E5A" font-size="10">DTOs</text>
+  <text x="530" y="422" text-anchor="start" fill="#444441" font-size="11">Patrón repositorio</text>
+  <text x="530" y="436" text-anchor="start" fill="#5F5E5A" font-size="10">entidades de negocio</text>
+  <text x="438" y="540" text-anchor="start" fill="#444441" font-size="11">ORM / SQL</text>
+  <text x="530" y="640" text-anchor="start" fill="#444441" font-size="11">Consultas</text>
+  <text x="530" y="654" text-anchor="start" fill="#5F5E5A" font-size="10">operaciones CRUD</text>
 </svg>

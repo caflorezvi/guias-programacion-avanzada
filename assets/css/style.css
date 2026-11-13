@@ -398,7 +398,7 @@ body {
   --hl-comentario: #59636e;
   --hl-clave: #cf222e;
   --hl-cadena: #0a3069;
-  --hl-funcion: #8250df;
+  --hl-funcion: #6639ba;
   --hl-constante: #0550ae;
   --hl-variable: #953800;
   --hl-etiqueta: #116329;
@@ -429,7 +429,7 @@ body {
 /* Comentarios */
 .highlight .c, .highlight .c1, .highlight .cm, .highlight .cs,
 .highlight .cd, .highlight .ch, .highlight .cpf {
-  color: var(--hl-comentario); font-style: italic;
+  color: var(--hl-comentario);
 }
 .highlight .cp { color: var(--hl-clave); }
 
@@ -479,6 +479,16 @@ body {
 .language-ts .highlight .na,
 .language-groovy .highlight .na,
 .language-gradle .highlight .na { color: var(--hl-funcion); }
+
+/* Java: igual que en github.com.
+   Rouge marca la puntuación (; ( ) { } .) como operador y los tipos como .nc/.kt;
+   GitHub los deja en el color de texto. Las anotaciones van en azul. */
+.language-java .highlight .o,
+.language-java .highlight .nc,
+.language-java .highlight .kt,
+.language-java .highlight .nn,
+.language-java .highlight .nl { color: var(--hl-texto); }
+.language-java .highlight .nd { color: var(--hl-constante); font-weight: normal; }
 
 /* En JSON y YAML, .nt/.na son claves */
 .language-json .highlight .nt,
@@ -767,6 +777,7 @@ body {
   --objetivo-fondo: #e3f5f2;
   --objetivo-borde: #1b7c72;
   --objetivo-texto: #0b3d37;
+  --nota-fondo: #ddf4ff;
   --nota-borde: #54aeff;
   --nota-texto: #0a3069;
   --req-acento: #0969da;
@@ -785,6 +796,7 @@ body {
   --objetivo-fondo: rgba(57, 197, 175, 0.1);
   --objetivo-borde: #3fbfa8;
   --objetivo-texto: #c9f2ea;
+  --nota-fondo: rgba(56, 139, 253, 0.1);
   --nota-borde: #1f6feb;
   --nota-texto: #cae8ff;
   --req-acento: #4493f8;
