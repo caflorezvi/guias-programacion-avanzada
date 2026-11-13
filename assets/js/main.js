@@ -205,6 +205,21 @@
     if (siguiente && /^(UL|OL)$/.test(siguiente.tagName)) cuerpo.appendChild(siguiente);
   });
 
+  // 4b. "Ejecute (nuevamente) la aplicación / el proyecto...": bloque pista fijo,
+  // sin etiqueta ni botón para plegar
+  contenido.querySelectorAll('p').forEach(p => {
+    if (p.parentElement.closest('li, blockquote, .pista')) return;
+    const texto = p.textContent.trim();
+    if (!/^(🚀\s*)?Ejecute (nuevamente )?(la aplicación|el proyecto|su aplicación)/i.test(texto)) return;
+    // El 🚀 lo pone el CSS en todos los bloques: se quita si ya viene en el texto
+    const primerTexto = document.createTreeWalker(p, NodeFilter.SHOW_TEXT).nextNode();
+    if (primerTexto) primerTexto.textContent = primerTexto.textContent.replace(/^\s*🚀\s*/, '');
+    const bloque = document.createElement('div');
+    bloque.className = 'pista';
+    p.before(bloque);
+    bloque.appendChild(p);
+  });
+
   // 5. Salida de consola: bloques marcados en la guía con ```salida
   contenido.querySelectorAll('.language-salida').forEach(marca => {
     const pre = marca.tagName === 'PRE' ? marca : (marca.closest('pre') || marca.querySelector('pre'));
@@ -276,6 +291,85 @@
           else if (mayus) token.className = tipoPrevio.test(prev) || prev.endsWith(':') || prev.endsWith('<') ? 'n' : 'nv';
           else if (/^(private|public|protected|readonly)$/.test(prev) && next.startsWith('=')) token.className = 'no';
           else token.className = 'n';
+          break;
+      }
+    });
+  });
+
+  // Reemplaza un token por varios fragmentos [texto, clase].
+  const partirToken = (token, partes) => {
+    const frag = document.createDocumentFragment();
+    partes.forEach(([texto, clase]) => {
+      if (!texto) return;
+      const span = document.createElement('span');
+      span.className = clase;
+      span.textContent = texto;
+      frag.appendChild(span);
+    });
+    token.replaceWith(frag);
+  };
+
+  // 9. HTML: igualar los colores de github.com.
+  // Rouge pinta "<li><a" o "</a></li>" como un solo token de etiqueta y deja el "=" dentro
+  // del atributo; GitHub deja < > </ /> y = en color de texto, el nombre de la etiqueta
+  // en verde y el atributo en azul.
+  contenido.querySelectorAll('.language-html pre.highlight').forEach(bloque => {
+    bloque.querySelectorAll('.nt').forEach(token => {
+      const partes = token.textContent.match(/<\/?|\/?>|[^<>\/]+/g) || [];
+      partirToken(token, partes.map(p => [p, /^[<>\/]+$/.test(p) ? 'p' : 'nt']));
+    });
+    bloque.querySelectorAll('.na').forEach(token => {
+      const m = token.textContent.match(/^([^=]*)(=?)(.*)$/s);
+      partirToken(token, [[m[1], 'na'], [m[2], 'p'], [m[3], 'p']]);
+    });
+  });
+
+  // 10. CSS: igualar los colores de github.com.
+  // Selectores de clase e id: el . y el # en texto y el nombre en azul.
+  // Números en azul y la unidad (px, rem, %) en texto. url() y var() en morado.
+  // Valores como blue, center o no-repeat en texto.
+  contenido.querySelectorAll('.language-css pre.highlight').forEach(bloque => {
+    bloque.querySelectorAll('.no').forEach(token => { token.className = 'n'; });
+    bloque.querySelectorAll('.n').forEach(token => {
+      const sig = token.nextElementSibling;
+      if (sig && sig.textContent.startsWith('(')) token.className = 'fm';
+    });
+    bloque.querySelectorAll('.nc, .nf').forEach(token => {
+      const partes = token.textContent.match(/[.#]|[^.#]+/g) || [];
+      partirToken(token, partes.map(p => [p, /^[.#]$/.test(p) ? 'p' : 'no']));
+    });
+    bloque.querySelectorAll('.m, .mi, .mf').forEach(token => {
+      const m = token.textContent.match(/^([-+]?[\d.]+)([a-z%]+)$/i);
+      if (m) partirToken(token, [[m[1], 'm'], [m[2], 'n']]);
+    });
+    bloque.querySelectorAll('.sx').forEach(token => {
+      const m = token.textContent.match(/^(url)(\()(.*)(\))$/s);
+      if (m) partirToken(token, [[m[1], 'fm'], [m[2], 'p'], [m[3], 's'], [m[4], 'p']]);
+    });
+  });
+
+  // 11. SQL: igualar los colores de github.com.
+  // Nombre de la tabla o base de datos tras CREATE TABLE/DATABASE en morado,
+  // columnas calificadas (p.type_id) en azul y cadenas con "" o `` como cadenas.
+  // GitHub no resalta unique, describe, float ni el alias tras AS.
+  contenido.querySelectorAll('.language-sql pre.highlight').forEach(bloque => {
+    const tokens = Array.from(bloque.querySelectorAll('pre span'))
+      .filter(s => s.textContent.trim() !== '');
+    tokens.forEach((token, i) => {
+      const v = token.textContent.trim().toLowerCase();
+      const prev = i > 0 ? tokens[i - 1].textContent.trim().toLowerCase() : '';
+      const next = i < tokens.length - 1 ? tokens[i + 1].textContent.trim() : '';
+      switch (token.className) {
+        case 'k':
+        case 'nb':
+          if (/^(unique|describe|float)$/.test(v) || prev === 'as') token.className = 'n';
+          break;
+        case 'n':
+          if (/^(table|database)$/.test(prev)) token.className = 'nf';
+          else if (next === '.' || prev === '.') token.className = 'no';
+          break;
+        case 'nv':
+          if (/^["`]/.test(v)) token.className = 's';
           break;
       }
     });

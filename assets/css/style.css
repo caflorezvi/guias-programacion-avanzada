@@ -500,6 +500,21 @@ body {
 .language-java .highlight .nl { color: var(--hl-texto); }
 .language-java .highlight .nd { color: var(--hl-constante); font-weight: normal; }
 
+/* HTML: igual que en github.com.
+   Etiquetas en verde, atributos en azul y < > = en color de texto (main.js separa los tokens). */
+.language-html .highlight .na { color: var(--hl-constante); }
+
+/* CSS: igual que en github.com.
+   Propiedades en azul (también las que Rouge marca como .py) y valores como blue,
+   center o no-repeat en color de texto. main.js separa selectores, unidades y url(). */
+.language-css .highlight .py { color: var(--hl-constante); }
+.language-css .highlight .nb { color: var(--hl-texto); }
+
+/* SQL: igual que en github.com.
+   Tipos (varchar, int) en rojo como las palabras clave; main.js marca el nombre
+   de la tabla (.nf), las columnas calificadas (.no) y las cadenas con "" o `` (.s). */
+.language-sql .highlight .nb { color: var(--hl-clave); }
+
 /* En JSON y YAML, .nt/.na son claves */
 .language-json .highlight .nt,
 .language-yaml .highlight .na,
@@ -928,6 +943,23 @@ body {
 .pista > div > ul,
 .pista > div > ol {
   margin: 0;
+}
+
+/* 4b. Pista fija ("Ejecute la aplicación..."): mismo cajón verde con 🚀, sin botón */
+.content div.pista {
+  margin: 1.5rem 0;
+  padding: 0.8rem 1.1rem;
+  border: 1px solid var(--pista-acento);
+  border-radius: var(--radius);
+  background: var(--pista-fondo);
+}
+
+.content div.pista > p {
+  margin: 0;
+}
+
+.content div.pista > p::before {
+  content: "🚀 ";
 }
 
 /* 5. Salida de consola y traza (bloques de código sin lenguaje) */
