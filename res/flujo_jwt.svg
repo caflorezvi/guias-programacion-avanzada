@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 560" font-family="Helvetica, Arial, sans-serif" role="img" aria-label="Flujo de trabajo con JWT">
+  <title>Flujo de trabajo con JWT</title>
+  <desc>Diagrama de secuencia entre cliente y servidor en tres fases: registro de usuario, inicio de sesión (el servidor devuelve un JWT) y acceso a recursos enviando el JWT en el encabezado Authorization.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#888780"/></marker>
+    <marker id="herencia" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L12 6L0 12z" fill="#ffffff" stroke="#5F5E5A" stroke-width="1"/></marker>
+  </defs>
+  <rect x="10" y="80" width="660" height="140" rx="10" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5" fill-opacity="0.45"/>
+  <rect x="10" y="230" width="660" height="150" rx="10" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5" fill-opacity="0.45"/>
+  <rect x="10" y="390" width="660" height="155" rx="10" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5" fill-opacity="0.45"/>
+  <rect x="145" y="20" width="130" height="44" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text x="210" y="46" text-anchor="middle" fill="#0C447C" font-size="13" font-weight="500">Cliente</text>
+  <rect x="405" y="20" width="130" height="44" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="470" y="46" text-anchor="middle" fill="#04342C" font-size="13" font-weight="500">Servidor</text>
+  <line x1="210" y1="66" x2="210" y2="550" stroke="#888780" stroke-width="0.5" stroke-dasharray="3 3"/>
+  <line x1="470" y1="66" x2="470" y2="550" stroke="#888780" stroke-width="0.5" stroke-dasharray="3 3"/>
+  <text x="80" y="140" text-anchor="middle" fill="#2C2C2A" font-size="13" font-weight="600">Registro</text>
+  <text x="80" y="157" text-anchor="middle" fill="#2C2C2A" font-size="13" font-weight="600">de usuario</text>
+  <path d="M212 130 L468 130" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <circle cx="228" cy="102" r="9" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="228" y="106" text-anchor="middle" fill="#633806" font-size="11" font-weight="700">1</text>
+  <text x="244" y="106" text-anchor="start" fill="#185FA5" font-size="11" font-weight="500" font-family="Menlo, Consolas, monospace">POST /api/auth/signup</text>
+  <text x="244" y="120" text-anchor="start" fill="#444441" font-size="11">{ username, email, role, password }</text>
+  <circle cx="488" cy="150" r="9" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="488" y="154" text-anchor="middle" fill="#633806" font-size="11" font-weight="700">2</text>
+  <text x="504" y="154" text-anchor="start" fill="#2C2C2A" font-size="11">Verifica si ya existe</text>
+  <text x="504" y="169" text-anchor="start" fill="#2C2C2A" font-size="11">Guarda el usuario en la BD</text>
+  <path d="M468 195 L212 195" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <circle cx="228" cy="181" r="9" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="228" y="185" text-anchor="middle" fill="#633806" font-size="11" font-weight="700">3</text>
+  <text x="244" y="185" text-anchor="start" fill="#2C2C2A" font-size="11">return Message ("Registro exitoso")</text>
+  <text x="80" y="295" text-anchor="middle" fill="#2C2C2A" font-size="13" font-weight="600">Inicio</text>
+  <text x="80" y="312" text-anchor="middle" fill="#2C2C2A" font-size="13" font-weight="600">de sesión</text>
+  <path d="M212 280 L468 280" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <circle cx="228" cy="252" r="9" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="228" y="256" text-anchor="middle" fill="#633806" font-size="11" font-weight="700">1</text>
+  <text x="244" y="256" text-anchor="start" fill="#185FA5" font-size="11" font-weight="500" font-family="Menlo, Consolas, monospace">POST /api/auth/signin</text>
+  <text x="244" y="270" text-anchor="start" fill="#444441" font-size="11">{ username, password }</text>
+  <circle cx="488" cy="298" r="9" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="488" y="302" text-anchor="middle" fill="#633806" font-size="11" font-weight="700">2</text>
+  <text x="504" y="302" text-anchor="start" fill="#2C2C2A" font-size="11">Autentica username y password</text>
+  <text x="504" y="317" text-anchor="start" fill="#2C2C2A" font-size="11">Crea el JWT con la clave secreta</text>
+  <path d="M468 355 L212 355" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <circle cx="228" cy="327" r="9" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="228" y="331" text-anchor="middle" fill="#633806" font-size="11" font-weight="700">3</text>
+  <text x="244" y="331" text-anchor="start" fill="#2C2C2A" font-size="11">return JwtResponse</text>
+  <text x="244" y="345" text-anchor="start" fill="#444441" font-size="11">{ token, type, user info, authorities }</text>
+  <text x="80" y="455" text-anchor="middle" fill="#2C2C2A" font-size="13" font-weight="600">Acceso</text>
+  <text x="80" y="472" text-anchor="middle" fill="#2C2C2A" font-size="13" font-weight="600">a recursos</text>
+  <path d="M212 440 L468 440" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <circle cx="228" cy="412" r="9" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="228" y="416" text-anchor="middle" fill="#633806" font-size="11" font-weight="700">4</text>
+  <text x="244" y="416" text-anchor="start" fill="#2C2C2A" font-size="11">Petición con el JWT en el</text>
+  <text x="244" y="430" text-anchor="start" fill="#444441" font-size="11">encabezado Authorization</text>
+  <circle cx="488" cy="452" r="9" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="488" y="456" text-anchor="middle" fill="#633806" font-size="11" font-weight="700">5</text>
+  <text x="504" y="456" text-anchor="start" fill="#2C2C2A" font-size="11">Verifica la firma del JWT</text>
+  <text x="504" y="471" text-anchor="start" fill="#2C2C2A" font-size="11">Obtiene el usuario y lo autentica</text>
+  <text x="504" y="486" text-anchor="start" fill="#2C2C2A" font-size="11">Autoriza según sus roles</text>
+  <path d="M468 520 L212 520" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <circle cx="228" cy="506" r="9" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="228" y="510" text-anchor="middle" fill="#633806" font-size="11" font-weight="700">6</text>
+  <text x="244" y="510" text-anchor="start" fill="#2C2C2A" font-size="11">return Response según sus permisos</text>
+</svg>

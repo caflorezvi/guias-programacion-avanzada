@@ -1,0 +1,965 @@
+/* ============================================
+   Variables y tema claro/oscuro
+   ============================================ */
+:root {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-mono: monospace;
+
+  --radius: 8px;
+  --radius-sm: 6px;
+  --max-width: 960px;
+  --transition: 0.2s ease;
+}
+
+/* Tema claro */
+[data-theme="light"] {
+  --bg: #ffffff;
+  --bg-secondary: #f6f8fa;
+  --bg-tertiary: #eaeef2;
+  --text: #1f2328;
+  --text-muted: #656d76;
+  --border: #d1d9e0;
+  --link: #0969da;
+  --link-hover: #0550ae;
+  --code-bg: #f6f8fa;
+  --code-text: #1f2328;
+  --code-block-bg: #f6f8fa;
+  --code-block-border: #d1d9e0;
+  --header-bg: rgba(255, 255, 255, 0.72);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --blockquote-border: #d1d9e0;
+  --callout-bg: #fff8c5;
+  --callout-border: #e3c35a;
+  --callout-text: #3b2e00;
+  --table-stripe: #f6f8fa;
+}
+
+/* Tema oscuro */
+[data-theme="dark"] {
+  --bg: #0d1117;
+  --bg-secondary: #161b22;
+  --bg-tertiary: #21262d;
+  --text: #e6edf3;
+  --text-muted: #8d96a0;
+  --border: #30363d;
+  --link: #4493f8;
+  --link-hover: #79b8ff;
+  --code-bg: #161b22;
+  --code-text: #e6edf3;
+  --code-block-bg: #161b22;
+  --code-block-border: #30363d;
+  --header-bg: rgba(13, 17, 23, 0.72);
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --blockquote-border: #30363d;
+  --callout-bg: #2b2210;
+  --callout-border: #9e6a03;
+  --callout-text: #f0e6c8;
+  --table-stripe: #161b22;
+}
+
+/* ============================================
+   Reset y base
+   ============================================ */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background var(--transition), color var(--transition);
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ============================================
+   Header
+   ============================================ */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: var(--header-bg);
+  backdrop-filter: saturate(180%) blur(16px);
+  -webkit-backdrop-filter: saturate(180%) blur(16px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+}
+
+/* Barra de progreso de lectura, sobre el borde inferior del header */
+.barra-progreso {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 3px;
+  pointer-events: none;
+}
+
+.barra-progreso-relleno {
+  height: 100%;
+  background: var(--link);
+  transform: scaleX(0);
+  transform-origin: left;
+  will-change: transform;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+}
+
+.site-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-link,
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+
+.nav-link:hover,
+.theme-toggle:hover {
+  background: var(--bg-secondary);
+  color: var(--text);
+}
+
+[data-theme="light"] .icon-moon { display: block; }
+[data-theme="light"] .icon-sun { display: none; }
+[data-theme="dark"] .icon-moon { display: none; }
+[data-theme="dark"] .icon-sun { display: block; }
+
+/* ============================================
+   Contenido
+   ============================================ */
+.content {
+  padding: 2.5rem 0 4rem;
+}
+
+.content h1,
+.content h2,
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.content h1 {
+  font-size: 2.25rem;
+  margin-top: 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.content h2 {
+  font-size: 1.65rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.content h3 { font-size: 1.3rem; }
+.content h4 { font-size: 1.1rem; }
+.content h5 { font-size: 1rem; }
+.content h6 { font-size: 0.9rem; color: var(--text-muted); }
+
+.content p {
+  margin: 1rem 0;
+}
+
+.content a {
+  color: var(--link);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+
+.content a:hover {
+  color: var(--link-hover);
+  text-decoration: underline;
+}
+
+.content ul,
+.content ol {
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.content li {
+  margin: 0.4rem 0;
+}
+
+.content strong {
+  font-weight: 600;
+}
+
+/* Notas y advertencias (> ⚠️ ...): caja amarilla con bordes redondeados */
+.content blockquote {
+  margin: 1.5rem 0;
+  padding: 0.85rem 1.1rem;
+  border: 1px solid var(--callout-border);
+  background: var(--callout-bg);
+  border-radius: var(--radius);
+  color: var(--callout-text);
+}
+
+.content blockquote p {
+  margin: 0;
+}
+
+.content blockquote p + p,
+.content blockquote p + pre,
+.content blockquote pre + p,
+.content blockquote div + p {
+  margin-top: 0.6rem;
+}
+
+.content hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* ============================================
+   Imágenes
+   ============================================ */
+.content img {
+  max-width: 100%;
+  border-radius: var(--radius-sm);
+  display: block;
+  margin: 1rem auto;
+}
+
+/* ============================================
+   Tablas
+   ============================================ */
+.content table {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+
+.content th,
+.content td {
+  padding: 0.6rem 0.9rem;
+  border: 1px solid var(--border);
+  text-align: left;
+}
+
+.content th {
+  background: var(--bg-secondary);
+  font-weight: 600;
+}
+
+.content tr:nth-child(even) {
+  background: var(--table-stripe);
+}
+
+/* ============================================
+   Código inline
+   ============================================ */
+.content code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: var(--code-bg);
+  color: var(--code-text);
+  padding: 0.15em 0.4em;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+/* ============================================
+   Bloques de código
+   ============================================ */
+.content pre {
+  position: relative;
+  background: var(--code-block-bg);
+  border: 1px solid var(--code-block-border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-size: 0.85rem;
+  line-height: 1.6;
+}
+
+.content pre code {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-size: inherit;
+  color: var(--code-text);
+}
+
+.highlight {
+  position: relative;
+}
+
+/* Botón copiar */
+.copy-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity var(--transition), color var(--transition), background var(--transition);
+  z-index: 1;
+}
+
+.copy-button span {
+  display: none;
+}
+
+.highlight:hover .copy-button,
+.content pre:hover .copy-button {
+  opacity: 1;
+}
+
+.copy-button:hover {
+  color: var(--text);
+  background: var(--bg-secondary);
+}
+
+.copy-button.copied {
+  color: #1a7f37;
+  border-color: #1a7f37;
+}
+
+[data-theme="dark"] .copy-button.copied {
+  color: #3fb950;
+  border-color: #3fb950;
+}
+
+/* ============================================
+   Syntax highlighting (Rouge - paleta GitHub ampliada)
+   Cubre Java, TypeScript, HTML, CSS, SQL, Bash, Gradle,
+   properties, YAML, JSON y Dockerfile.
+   ============================================ */
+[data-theme="light"] {
+  --hl-comentario: #59636e;
+  --hl-clave: #cf222e;
+  --hl-cadena: #0a3069;
+  --hl-funcion: #8250df;
+  --hl-constante: #0550ae;
+  --hl-variable: #953800;
+  --hl-etiqueta: #116329;
+  --hl-anotacion: #953800;
+  --hl-texto: #1f2328;
+  --hl-borrado-fondo: #ffebe9;
+  --hl-borrado: #82071e;
+  --hl-agregado-fondo: #dafbe1;
+  --hl-agregado: #116329;
+}
+
+[data-theme="dark"] {
+  --hl-comentario: #9198a1;
+  --hl-clave: #ff7b72;
+  --hl-cadena: #a5d6ff;
+  --hl-funcion: #d2a8ff;
+  --hl-constante: #79c0ff;
+  --hl-variable: #ffa657;
+  --hl-etiqueta: #7ee787;
+  --hl-anotacion: #ffa657;
+  --hl-texto: #e6edf3;
+  --hl-borrado-fondo: rgba(248, 81, 73, 0.15);
+  --hl-borrado: #ffdcd7;
+  --hl-agregado-fondo: rgba(46, 160, 67, 0.15);
+  --hl-agregado: #aff5b4;
+}
+
+/* Comentarios */
+.highlight .c, .highlight .c1, .highlight .cm, .highlight .cs,
+.highlight .cd, .highlight .ch, .highlight .cpf {
+  color: var(--hl-comentario); font-style: italic;
+}
+.highlight .cp { color: var(--hl-clave); }
+
+/* Palabras clave (if, class, public, const, SELECT, FROM...) y tipos primitivos */
+.highlight .k, .highlight .kd, .highlight .kn, .highlight .kp,
+.highlight .kr, .highlight .kt, .highlight .kv,
+.highlight .o, .highlight .ow { color: var(--hl-clave); }
+
+/* Constantes del lenguaje: true, false, null, this */
+.highlight .kc, .highlight .bp, .highlight .no,
+.highlight .ss { color: var(--hl-constante); }
+
+/* Cadenas */
+.highlight .s, .highlight .s1, .highlight .s2, .highlight .sa,
+.highlight .sb, .highlight .sc, .highlight .sd, .highlight .sh,
+.highlight .sx, .highlight .sr, .highlight .dl { color: var(--hl-cadena); }
+.highlight .se, .highlight .si { color: var(--hl-clave); }
+
+/* Números */
+.highlight .m, .highlight .mi, .highlight .mf, .highlight .mh,
+.highlight .mo, .highlight .mb, .highlight .il,
+.highlight .mx { color: var(--hl-constante); }
+
+/* Nombres: clases, funciones, métodos */
+.highlight .n, .highlight .nx, .highlight .py,
+.highlight .p { color: var(--hl-texto); }
+.highlight .nc, .highlight .nf, .highlight .fm,
+.highlight .ne { color: var(--hl-funcion); }
+.highlight .nn { color: var(--hl-texto); }
+
+/* Variables y funciones integradas */
+.highlight .nv, .highlight .vc, .highlight .vg, .highlight .vi,
+.highlight .vm, .highlight .nb { color: var(--hl-variable); }
+
+/* Anotaciones de Java (@RestController) y decoradores de Angular (@Component) */
+.highlight .nd { color: var(--hl-anotacion); font-weight: 500; }
+
+/* HTML / XML: etiquetas y atributos. CSS: selectores y propiedades */
+.highlight .nt { color: var(--hl-etiqueta); }
+.highlight .na { color: var(--hl-constante); }
+.highlight .ni { color: var(--hl-constante); }
+.highlight .nl { color: var(--hl-constante); }
+
+/* En Java y TypeScript, .na son llamadas a métodos (usuario.getNombre()) */
+.language-java .highlight .na,
+.language-typescript .highlight .na,
+.language-ts .highlight .na,
+.language-groovy .highlight .na,
+.language-gradle .highlight .na { color: var(--hl-funcion); }
+
+/* En JSON y YAML, .nt/.na son claves */
+.language-json .highlight .nt,
+.language-yaml .highlight .na,
+.language-yaml .highlight .nt { color: var(--hl-constante); }
+
+/* En properties, la clave antes del = */
+.language-properties .highlight .na,
+.language-properties .highlight .nv { color: var(--hl-constante); }
+
+/* En bash, las opciones (-p, --name) */
+.language-bash .highlight .nt { color: var(--hl-constante); }
+
+/* Diff */
+.highlight .gd { color: var(--hl-borrado); background: var(--hl-borrado-fondo); }
+.highlight .gi { color: var(--hl-agregado); background: var(--hl-agregado-fondo); }
+.highlight .gh, .highlight .gu { color: var(--hl-constante); font-weight: 600; }
+.highlight .ge { font-style: italic; }
+.highlight .gs { font-weight: 600; }
+
+/* Rouge marca como error lo que no reconoce (por ejemplo {{ }} de Angular): sin fondo rojo */
+.highlight .err { color: inherit; background: transparent; }
+
+/* ============================================
+   Footer
+   ============================================ */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+  margin-top: 4rem;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.site-footer p {
+  margin: 0.25rem 0;
+}
+
+.footer-sub {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+/* ============================================
+   Responsive
+   ============================================ */
+@media (max-width: 640px) {
+  .container { padding: 0 1rem; }
+  .content { padding: 1.5rem 0 3rem; }
+  .content h1 { font-size: 1.8rem; }
+  .content h2 { font-size: 1.4rem; }
+  .copy-button { opacity: 1; } /* En móvil siempre visible */
+}
+
+/* Scrollbar moderna */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-secondary); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 5px; }
+::-webkit-scrollbar-thumb:hover { background: var(--text-muted); }
+
+/* ============================================
+   Colores de la píldora "Reto" y la tarjeta del proyecto final
+   ============================================ */
+[data-theme="light"] {
+  --reto-borde: #8250df;
+  --reto-fondo: #fbefff;
+}
+
+[data-theme="dark"] {
+  --reto-borde: #ab7df8;
+  --reto-fondo: rgba(171, 125, 248, 0.1);
+}
+
+/* ============================================
+   Píldora "Reto"
+   ============================================ */
+.marca-reto {
+  display: inline-block;
+  margin-left: 0.6rem;
+  padding: 0.1rem 0.6rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  vertical-align: middle;
+  color: var(--reto-borde);
+  background: var(--reto-fondo);
+  border: 1px solid var(--reto-borde);
+  border-radius: 999px;
+}
+
+/* ============================================
+   3. Cabecera institucional de cada guía
+   ============================================ */
+.guia-cabecera {
+  margin-bottom: 2rem;
+  padding: 1.1rem 1.3rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.guia-cabecera p {
+  margin: 0;
+}
+
+.guia-etiqueta {
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--link);
+}
+
+.guia-nombre {
+  margin-top: 0.2rem !important;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.guia-datos {
+  margin-top: 0.5rem !important;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+/* ============================================
+   4. Página de inicio
+   ============================================ */
+.portada {
+  padding: 1rem 0 0.5rem;
+}
+
+.portada-curso {
+  margin: 0 !important;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--link);
+}
+
+.content .portada h1 {
+  margin: 0.3rem 0 0.4rem;
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.portada-resumen {
+  margin: 0 !important;
+  font-size: 1.15rem;
+  color: var(--text-muted);
+}
+
+.content .bloque h2 {
+  font-size: 1.2rem;
+  border-bottom: none;
+  margin-top: 2.5rem;
+}
+
+.tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.75rem;
+}
+
+.content a.tarjeta {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.8rem 1rem;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color var(--transition), background var(--transition), transform var(--transition);
+}
+
+.content a.tarjeta:hover {
+  color: var(--text);
+  text-decoration: none;
+  border-color: var(--link);
+  background: var(--bg-secondary);
+  transform: translateY(-1px);
+}
+
+.tarjeta-numero {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--link);
+  background: var(--bg-secondary);
+  border-radius: var(--radius-sm);
+}
+
+.tarjeta-titulo {
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.content a.tarjeta-proyecto {
+  flex-wrap: wrap;
+  padding: 1rem 1.2rem;
+  border-left: 4px solid var(--reto-borde);
+  background: var(--reto-fondo);
+}
+
+.tarjeta-proyecto .tarjeta-numero {
+  color: var(--reto-borde);
+  background: var(--bg);
+}
+
+.tarjeta-proyecto .tarjeta-titulo {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.tarjeta-detalle {
+  flex-basis: 100%;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ============================================
+   5. Navegación anterior / siguiente
+   ============================================ */
+.guia-navegacion {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.content a.guia-enlace {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.content a.guia-enlace:hover {
+  text-decoration: none;
+  border-color: var(--link);
+  background: var(--bg-secondary);
+}
+
+.guia-siguiente {
+  text-align: right;
+}
+
+.guia-direccion {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.guia-enlace-titulo {
+  font-weight: 600;
+  color: var(--link);
+}
+
+@media (max-width: 640px) {
+  .guia-navegacion { grid-template-columns: 1fr; }
+  .guia-navegacion > span:empty { display: none; }
+  .tarjetas { grid-template-columns: 1fr; }
+}
+
+/* ============================================
+   Bloques especiales de las guías (los marca main.js)
+   ============================================ */
+[data-theme="light"] {
+  --objetivo-fondo: #e3f5f2;
+  --objetivo-borde: #1b7c72;
+  --objetivo-texto: #0b3d37;
+  --nota-borde: #54aeff;
+  --nota-texto: #0a3069;
+  --req-acento: #0969da;
+  --req-fondo: #f6f8fa;
+  --problema-acento: #cf222e;
+  --problema-fondo: #ffebe9;
+  --pista-acento: #1a7f37;
+  --pista-fondo: #dafbe1;
+  --consola-fondo: #1f2328;
+  --consola-barra: #32383f;
+  --consola-texto: #e6edf3;
+  --traza-acento: #bc4c00;
+}
+
+[data-theme="dark"] {
+  --objetivo-fondo: rgba(57, 197, 175, 0.1);
+  --objetivo-borde: #3fbfa8;
+  --objetivo-texto: #c9f2ea;
+  --nota-borde: #1f6feb;
+  --nota-texto: #cae8ff;
+  --req-acento: #4493f8;
+  --req-fondo: #161b22;
+  --problema-acento: #f85149;
+  --problema-fondo: rgba(248, 81, 73, 0.1);
+  --pista-acento: #3fb950;
+  --pista-fondo: rgba(63, 185, 80, 0.1);
+  --consola-fondo: #010409;
+  --consola-barra: #21262d;
+  --consola-texto: #e6edf3;
+  --traza-acento: #f0883e;
+}
+
+/* Etiqueta pequeña en mayúsculas que abre un bloque */
+.bloque-marca,
+.pista > summary,
+.content pre::before {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* 0. Objetivo de la guía: verde azulado, borde izquierdo marcado */
+.content .bloque-objetivo {
+  margin: 1.5rem 0 2rem;
+  padding: 0.9rem 1.2rem;
+  background: var(--objetivo-fondo);
+  border: 1px solid var(--objetivo-borde);
+  border-left-width: 4px;
+  border-radius: var(--radius);
+  color: var(--objetivo-texto);
+}
+
+.content .bloque-objetivo .bloque-marca {
+  margin: 0 0 0.35rem;
+  color: var(--objetivo-borde);
+}
+
+.content .bloque-objetivo > p:not(.bloque-marca),
+.content .bloque-objetivo > ul,
+.content .bloque-objetivo > ol {
+  margin: 0.5rem 0 0;
+}
+
+.content .bloque-objetivo > :nth-child(2) {
+  margin-top: 0;
+}
+
+/* 1. Nota o sugerencia (>): azul */
+.content blockquote.aviso-nota {
+  background: var(--nota-fondo);
+  border-color: var(--nota-borde);
+  color: var(--nota-texto);
+}
+
+/* 2 y 3. Nuevo requerimiento y problema de la versión */
+.content p.requerimiento,
+.content p.problema {
+  margin: 1.5rem 0;
+  padding: 0.8rem 1.1rem;
+  border-left: 4px solid var(--req-acento);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  background: var(--req-fondo);
+}
+
+.content p.problema {
+  border-left-color: var(--problema-acento);
+  background: var(--problema-fondo);
+}
+
+.content .bloque-marca {
+  display: block;
+  margin-bottom: 0.25rem;
+  color: var(--req-acento);
+}
+
+.content .problema .bloque-marca {
+  color: var(--problema-acento);
+}
+
+/* 4. Pista plegable: verde */
+.content details.pista {
+  margin: 1.5rem 0;
+  border: 1px solid var(--pista-acento);
+  border-radius: var(--radius);
+  background: var(--pista-fondo);
+}
+
+.pista > summary {
+  padding: 0.6rem 1.1rem;
+  color: var(--pista-acento);
+  cursor: pointer;
+  list-style: none;
+}
+
+.pista > summary::-webkit-details-marker { display: none; }
+
+.pista > summary::before {
+  content: "💡 ";
+}
+
+.pista > summary::after {
+  content: " · ver";
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0;
+  opacity: 0.8;
+}
+
+.pista[open] > summary::after { content: " · ocultar"; }
+
+.pista > div {
+  padding: 0 1.1rem 0.8rem;
+}
+
+.pista > div > p,
+.pista > div > ul,
+.pista > div > ol {
+  margin: 0;
+}
+
+/* 5. Salida de consola y traza (bloques de código sin lenguaje) */
+.content pre.bloque-consola,
+.content pre.bloque-traza {
+  padding-top: 2.3rem;
+}
+
+.content pre.bloque-consola::before,
+.content pre.bloque-traza::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0.35rem 1rem;
+  font-family: var(--font-sans);
+  border-bottom: 1px solid var(--code-block-border);
+}
+
+.content pre.bloque-consola {
+  background: var(--consola-fondo);
+  border-color: var(--consola-barra);
+}
+
+.content pre.bloque-consola code {
+  color: var(--consola-texto);
+}
+
+.content pre.bloque-consola::before {
+  content: "●  ●  ●   Salida";
+  color: #8d96a0;
+  background: var(--consola-barra);
+  border-bottom-color: var(--consola-barra);
+}
+
+.content pre.bloque-traza {
+  border-left: 4px solid var(--traza-acento);
+}
+
+.content pre.bloque-traza::before {
+  content: "Traza de ejecución";
+  color: var(--traza-acento);
+}
+
+/* ============================================
+   Diagramas SVG (res/*.svg)
+   Fondo transparente: en tema oscuro se muestran sobre una tarjeta clara
+   ============================================ */
+.content img[src$=".svg"] {
+  margin: 1.5rem auto;
+}
+
+[data-theme="dark"] .content img[src$=".svg"] {
+  background: #f6f8fa;
+  padding: 1rem;
+  border-radius: var(--radius);
+}

@@ -1,0 +1,68 @@
+# Orden de las guías. Se usa en el índice (agrupadas por bloque)
+# y en la navegación anterior/siguiente al final de cada guía.
+
+- archivo: 01.introduccion.md
+  titulo: Introducción
+  bloque: Backend con Spring Boot
+- archivo: 02.instalacion-herramientas-de-desarrollo.md
+  titulo: Instalación de herramientas de desarrollo
+  bloque: Backend con Spring Boot
+- archivo: 03.proyecto-gradle.md
+  titulo: Creación de proyecto Spring Boot con Gradle
+  bloque: Backend con Spring Boot
+- archivo: 04.apis-rest.md
+  titulo: Diseño de APIs REST
+  bloque: Backend con Spring Boot
+- archivo: 05.controladores-rest-SpringBoot.md
+  titulo: Controladores REST en Spring Boot
+  bloque: Backend con Spring Boot
+- archivo: 06.servicios-negocio.md
+  titulo: Servicios de negocio
+  bloque: Backend con Spring Boot
+- archivo: 07.servicios-externos.md
+  titulo: Servicios externos
+  bloque: Backend con Spring Boot
+- archivo: 08.bases-datos-sql.md
+  titulo: Bases de datos SQL
+  bloque: Backend con Spring Boot
+- archivo: 09.representacion-informacion.md
+  titulo: Representación de la información
+  bloque: Backend con Spring Boot
+- archivo: 10.repositorios.md
+  titulo: Repositorios en Spring Data
+  bloque: Backend con Spring Boot
+- archivo: 11.consultas.md
+  titulo: Consultas en Spring Data JPA
+  bloque: Backend con Spring Boot
+- archivo: 12.spring-security.md
+  titulo: Seguridad con Spring Security
+  bloque: Backend con Spring Boot
+- archivo: 13.pruebas.md
+  titulo: Pruebas unitarias y de integración
+  bloque: Backend con Spring Boot
+
+- archivo: 14.angular.md
+  titulo: Configuración de Angular y creación del proyecto
+  bloque: Frontend con Angular
+- archivo: 15.formularios.md
+  titulo: Formularios reactivos
+  bloque: Frontend con Angular
+- archivo: 16.maquetacion-css.md
+  titulo: Maquetación y estilos CSS
+  bloque: Frontend con Angular
+- archivo: 17.servicios-angular.md
+  titulo: Servicios en Angular
+  bloque: Frontend con Angular
+- archivo: 18.mapas.md
+  titulo: Mapas con Mapbox
+  bloque: Frontend con Angular
+- archivo: 19.integracion-backend.md
+  titulo: Integración con la API del backend
+  bloque: Frontend con Angular
+- archivo: 20.guards.md
+  titulo: Guards e Interceptors
+  bloque: Frontend con Angular
+
+- archivo: 21.despliegue.md
+  titulo: Despliegue en la nube
+  bloque: Despliegue

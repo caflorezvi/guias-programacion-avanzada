@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 520" font-family="Helvetica, Arial, sans-serif" role="img" aria-label="Arquitectura Angular y Spring Boot">
+  <title>Arquitectura Angular y Spring Boot</title>
+  <desc>El frontend en Angular (plantillas, componentes y servicios) usa HttpClient para enviar peticiones al controlador REST de Spring Boot, que delega en servicios, modelo y Spring Data JPA para acceder a la base de datos.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#888780"/></marker>
+    <marker id="herencia" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L12 6L0 12z" fill="#ffffff" stroke="#5F5E5A" stroke-width="1"/></marker>
+  </defs>
+  <rect x="20" y="20" width="440" height="185" rx="10" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5" fill-opacity="0.45"/>
+  <text x="240" y="46" text-anchor="middle" fill="#791F1F" font-size="16" font-weight="600">Angular</text>
+  <rect x="40" y="62" width="125" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text x="102.5" y="94" text-anchor="middle" fill="#2C2C2A" font-size="13" font-weight="500">Plantillas</text>
+  <rect x="177" y="62" width="125" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text x="239.5" y="94" text-anchor="middle" fill="#2C2C2A" font-size="13" font-weight="500">Componentes</text>
+  <rect x="314" y="62" width="125" height="56" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text x="376.5" y="94" text-anchor="middle" fill="#2C2C2A" font-size="13" font-weight="500">Servicios</text>
+  <rect x="40" y="140" width="399" height="44" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="239.5" y="166" text-anchor="middle" fill="#412402" font-size="13" font-weight="500">HttpClient</text>
+  <rect x="20" y="290" width="440" height="210" rx="10" fill="#EAF3DE" stroke="#3B6D11" stroke-width="0.5" fill-opacity="0.45"/>
+  <rect x="40" y="308" width="399" height="44" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text x="239.5" y="326.5" text-anchor="middle" fill="#3C3489" font-size="13" font-weight="500">Controlador REST</text>
+  <text x="239.5" y="341.5" text-anchor="middle" fill="#534AB7" font-size="11" font-family="Menlo, Consolas, monospace">@RestController</text>
+  <rect x="40" y="372" width="125" height="60" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text x="102.5" y="406" text-anchor="middle" fill="#2C2C2A" font-size="13" font-weight="500">Servicios</text>
+  <rect x="177" y="372" width="125" height="60" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text x="239.5" y="406" text-anchor="middle" fill="#2C2C2A" font-size="13" font-weight="500">Modelo</text>
+  <rect x="314" y="372" width="125" height="60" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text x="376.5" y="406" text-anchor="middle" fill="#2C2C2A" font-size="13" font-weight="500">Spring Data JPA</text>
+  <text x="240" y="478" text-anchor="middle" fill="#173404" font-size="16" font-weight="600">Spring Boot</text>
+  <path d="M150 186 L150 306" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M330 306 L330 186" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="162" y="250" text-anchor="start" fill="#444441" font-size="11">petición HTTP</text>
+  <text x="342" y="250" text-anchor="start" fill="#444441" font-size="11">respuesta JSON</text>
+  <path d="M520 362 A70 10 0 0 0 660 362 V442 A70 10 0 0 1 520 442 Z" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <ellipse cx="590" cy="362" rx="70" ry="10" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text x="590" y="403.5" text-anchor="middle" fill="#0C447C" font-size="13" font-weight="500">Base de datos</text>
+  <text x="590" y="418.5" text-anchor="middle" fill="#185FA5" font-size="11">MySQL · PostgreSQL</text>
+  <path d="M441 392 L518 392" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M518 414 L441 414" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+</svg>

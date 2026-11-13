@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 380" font-family="Helvetica, Arial, sans-serif" role="img" aria-label="Modelo entidad-relación de la tienda">
+  <title>Modelo entidad-relación de la tienda</title>
+  <desc>Tablas customer, order, payment, product_type, product y order_item con sus columnas, llaves primarias y foráneas, y la cardinalidad de cada relación.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#888780"/></marker>
+    <marker id="herencia" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L12 6L0 12z" fill="#ffffff" stroke="#5F5E5A" stroke-width="1"/></marker>
+  </defs>
+  <rect x="20" y="30" width="190" height="108" rx="8" fill="#ffffff" stroke="#185FA5" stroke-width="0.5"/>
+  <path d="M20 58 V38 Q20 30 28 30 H202 Q210 30 210 38 V58 Z" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text x="115" y="49" text-anchor="middle" fill="#0C447C" font-size="13" font-weight="600" font-family="Menlo, Consolas, monospace">customer</text>
+  <text x="30" y="72" text-anchor="start" fill="#2C2C2A" font-size="11" font-weight="500" font-family="Menlo, Consolas, monospace">id_number</text>
+  <text x="138" y="72" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">varchar</text>
+  <text x="200" y="72" text-anchor="end" fill="#854F0B" font-size="10" font-weight="700">PK</text>
+  <line x1="20" y1="78" x2="210" y2="78" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="30" y="92" text-anchor="start" fill="#2C2C2A" font-size="11" font-family="Menlo, Consolas, monospace">name</text>
+  <text x="138" y="92" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">varchar</text>
+  <line x1="20" y1="98" x2="210" y2="98" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="30" y="112" text-anchor="start" fill="#2C2C2A" font-size="11" font-family="Menlo, Consolas, monospace">email</text>
+  <text x="138" y="112" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">varchar</text>
+  <line x1="20" y1="118" x2="210" y2="118" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="30" y="132" text-anchor="start" fill="#2C2C2A" font-size="11" font-family="Menlo, Consolas, monospace">phone_number</text>
+  <text x="138" y="132" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">varchar</text>
+  <rect x="245" y="30" width="190" height="108" rx="8" fill="#ffffff" stroke="#0F6E56" stroke-width="0.5"/>
+  <path d="M245 58 V38 Q245 30 253 30 H427 Q435 30 435 38 V58 Z" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="340" y="49" text-anchor="middle" fill="#04342C" font-size="13" font-weight="600" font-family="Menlo, Consolas, monospace">order</text>
+  <text x="255" y="72" text-anchor="start" fill="#2C2C2A" font-size="11" font-weight="500" font-family="Menlo, Consolas, monospace">id</text>
+  <text x="363" y="72" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">int</text>
+  <text x="425" y="72" text-anchor="end" fill="#854F0B" font-size="10" font-weight="700">PK</text>
+  <line x1="245" y1="78" x2="435" y2="78" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="255" y="92" text-anchor="start" fill="#2C2C2A" font-size="11" font-family="Menlo, Consolas, monospace">created_at</text>
+  <text x="363" y="92" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">date</text>
+  <line x1="245" y1="98" x2="435" y2="98" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="255" y="112" text-anchor="start" fill="#2C2C2A" font-size="11" font-family="Menlo, Consolas, monospace">payment_id</text>
+  <text x="363" y="112" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">int</text>
+  <text x="425" y="112" text-anchor="end" fill="#185FA5" font-size="10" font-weight="700">FK</text>
+  <line x1="245" y1="118" x2="435" y2="118" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="255" y="132" text-anchor="start" fill="#2C2C2A" font-size="11" font-family="Menlo, Consolas, monospace">customer_id</text>
+  <text x="363" y="132" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">int</text>
+  <text x="425" y="132" text-anchor="end" fill="#185FA5" font-size="10" font-weight="700">FK</text>
+  <rect x="470" y="30" width="190" height="128" rx="8" fill="#ffffff" stroke="#534AB7" stroke-width="0.5"/>
+  <path d="M470 58 V38 Q470 30 478 30 H652 Q660 30 660 38 V58 Z" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text x="565" y="49" text-anchor="middle" fill="#3C3489" font-size="13" font-weight="600" font-family="Menlo, Consolas, monospace">payment</text>
+  <text x="480" y="72" text-anchor="start" fill="#2C2C2A" font-size="11" font-weight="500" font-family="Menlo, Consolas, monospace">id</text>
+  <text x="588" y="72" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">int</text>
+  <text x="650" y="72" text-anchor="end" fill="#854F0B" font-size="10" font-weight="700">PK</text>
+  <line x1="470" y1="78" x2="660" y2="78" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="480" y="92" text-anchor="start" fill="#2C2C2A" font-size="11" font-family="Menlo, Consolas, monospace">created_at</text>
+  <text x="588" y="92" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">date</text>
+  <line x1="470" y1="98" x2="660" y2="98" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="480" y="112" text-anchor="start" fill="#2C2C2A" font-size="11" font-family="Menlo, Consolas, monospace">amount</text>
+  <text x="588" y="112" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">float</text>
+  <line x1="470" y1="118" x2="660" y2="118" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="480" y="132" text-anchor="start" fill="#2C2C2A" font-size="11" font-family="Menlo, Consolas, monospace">payment_method</text>
+  <text x="588" y="132" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">varchar</text>
+  <line x1="470" y1="138" x2="660" y2="138" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="480" y="152" text-anchor="start" fill="#2C2C2A" font-size="11" font-family="Menlo, Consolas, monospace">status</text>
+  <text x="588" y="152" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">varchar</text>
+  <rect x="20" y="230" width="190" height="68" rx="8" fill="#ffffff" stroke="#5F5E5A" stroke-width="0.5"/>
+  <path d="M20 258 V238 Q20 230 28 230 H202 Q210 230 210 238 V258 Z" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text x="115" y="249" text-anchor="middle" fill="#2C2C2A" font-size="13" font-weight="600" font-family="Menlo, Consolas, monospace">product_type</text>
+  <text x="30" y="272" text-anchor="start" fill="#2C2C2A" font-size="11" font-weight="500" font-family="Menlo, Consolas, monospace">id</text>
+  <text x="138" y="272" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">int</text>
+  <text x="200" y="272" text-anchor="end" fill="#854F0B" font-size="10" font-weight="700">PK</text>
+  <line x1="20" y1="278" x2="210" y2="278" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="30" y="292" text-anchor="start" fill="#2C2C2A" font-size="11" font-family="Menlo, Consolas, monospace">name</text>
+  <text x="138" y="292" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">varchar</text>
+  <rect x="245" y="230" width="190" height="128" rx="8" fill="#ffffff" stroke="#854F0B" stroke-width="0.5"/>
+  <path d="M245 258 V238 Q245 230 253 230 H427 Q435 230 435 238 V258 Z" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="340" y="249" text-anchor="middle" fill="#412402" font-size="13" font-weight="600" font-family="Menlo, Consolas, monospace">product</text>
+  <text x="255" y="272" text-anchor="start" fill="#2C2C2A" font-size="11" font-weight="500" font-family="Menlo, Consolas, monospace">id</text>
+  <text x="363" y="272" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">varchar</text>
+  <text x="425" y="272" text-anchor="end" fill="#854F0B" font-size="10" font-weight="700">PK</text>
+  <line x1="245" y1="278" x2="435" y2="278" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="255" y="292" text-anchor="start" fill="#2C2C2A" font-size="11" font-family="Menlo, Consolas, monospace">name</text>
+  <text x="363" y="292" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">varchar</text>
+  <line x1="245" y1="298" x2="435" y2="298" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="255" y="312" text-anchor="start" fill="#2C2C2A" font-size="11" font-family="Menlo, Consolas, monospace">quantity</text>
+  <text x="363" y="312" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">int</text>
+  <line x1="245" y1="318" x2="435" y2="318" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="255" y="332" text-anchor="start" fill="#2C2C2A" font-size="11" font-family="Menlo, Consolas, monospace">price</text>
+  <text x="363" y="332" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">float</text>
+  <line x1="245" y1="338" x2="435" y2="338" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="255" y="352" text-anchor="start" fill="#2C2C2A" font-size="11" font-family="Menlo, Consolas, monospace">type_id</text>
+  <text x="363" y="352" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">int</text>
+  <text x="425" y="352" text-anchor="end" fill="#185FA5" font-size="10" font-weight="700">FK</text>
+  <rect x="470" y="230" width="190" height="128" rx="8" fill="#ffffff" stroke="#0F6E56" stroke-width="0.5"/>
+  <path d="M470 258 V238 Q470 230 478 230 H652 Q660 230 660 238 V258 Z" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="565" y="249" text-anchor="middle" fill="#04342C" font-size="13" font-weight="600" font-family="Menlo, Consolas, monospace">order_item</text>
+  <text x="480" y="272" text-anchor="start" fill="#2C2C2A" font-size="11" font-weight="500" font-family="Menlo, Consolas, monospace">id</text>
+  <text x="588" y="272" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">int</text>
+  <text x="650" y="272" text-anchor="end" fill="#854F0B" font-size="10" font-weight="700">PK</text>
+  <line x1="470" y1="278" x2="660" y2="278" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="480" y="292" text-anchor="start" fill="#2C2C2A" font-size="11" font-family="Menlo, Consolas, monospace">order_id</text>
+  <text x="588" y="292" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">int</text>
+  <text x="650" y="292" text-anchor="end" fill="#185FA5" font-size="10" font-weight="700">FK</text>
+  <line x1="470" y1="298" x2="660" y2="298" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="480" y="312" text-anchor="start" fill="#2C2C2A" font-size="11" font-family="Menlo, Consolas, monospace">product_id</text>
+  <text x="588" y="312" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">varchar</text>
+  <text x="650" y="312" text-anchor="end" fill="#185FA5" font-size="10" font-weight="700">FK</text>
+  <line x1="470" y1="318" x2="660" y2="318" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="480" y="332" text-anchor="start" fill="#2C2C2A" font-size="11" font-family="Menlo, Consolas, monospace">quantity</text>
+  <text x="588" y="332" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">int</text>
+  <line x1="470" y1="338" x2="660" y2="338" stroke="#D3D1C7" stroke-width="0.5"/>
+  <text x="480" y="352" text-anchor="start" fill="#2C2C2A" font-size="11" font-family="Menlo, Consolas, monospace">price</text>
+  <text x="588" y="352" text-anchor="start" fill="#888780" font-size="10" font-family="Menlo, Consolas, monospace">float</text>
+  <path d="M210 90 L245 90" fill="none" stroke="#5F5E5A" stroke-width="1"/>
+  <text x="218" y="84" text-anchor="middle" fill="#444441" font-size="11" font-weight="700">1</text>
+  <text x="238" y="84" text-anchor="middle" fill="#444441" font-size="11" font-weight="700">N</text>
+  <path d="M435 90 L470 90" fill="none" stroke="#5F5E5A" stroke-width="1"/>
+  <text x="443" y="84" text-anchor="middle" fill="#444441" font-size="11" font-weight="700">1</text>
+  <text x="463" y="84" text-anchor="middle" fill="#444441" font-size="11" font-weight="700">1</text>
+  <path d="M340 138 L340 183 Q340 195 352 195 L553 195 Q565 195 565 207 L565 230" fill="none" stroke="#5F5E5A" stroke-width="1"/>
+  <text x="348" y="152" text-anchor="middle" fill="#444441" font-size="11" font-weight="700">1</text>
+  <text x="573" y="224" text-anchor="middle" fill="#444441" font-size="11" font-weight="700">N</text>
+  <path d="M210 278 L245 278" fill="none" stroke="#5F5E5A" stroke-width="1"/>
+  <text x="218" y="272" text-anchor="middle" fill="#444441" font-size="11" font-weight="700">1</text>
+  <text x="238" y="272" text-anchor="middle" fill="#444441" font-size="11" font-weight="700">N</text>
+  <path d="M435 300 L470 300" fill="none" stroke="#5F5E5A" stroke-width="1"/>
+  <text x="443" y="294" text-anchor="middle" fill="#444441" font-size="11" font-weight="700">1</text>
+  <text x="463" y="294" text-anchor="middle" fill="#444441" font-size="11" font-weight="700">N</text>
+</svg>

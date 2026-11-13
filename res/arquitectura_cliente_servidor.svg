@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 310" font-family="Helvetica, Arial, sans-serif" role="img" aria-label="Arquitectura cliente-servidor">
+  <title>Arquitectura cliente-servidor</title>
+  <desc>Tres clientes (estación de trabajo, smartphone y portátil) se comunican a través de Internet con un servidor que atiende sus peticiones y devuelve respuestas.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#888780"/></marker>
+    <marker id="herencia" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L12 6L0 12z" fill="#ffffff" stroke="#5F5E5A" stroke-width="1"/></marker>
+  </defs>
+  <rect x="30" y="30" width="170" height="50" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text x="115" y="51.5" text-anchor="middle" fill="#3C3489" font-size="13" font-weight="500">Estación de trabajo</text>
+  <text x="115" y="66.5" text-anchor="middle" fill="#534AB7" font-size="11">cliente</text>
+  <rect x="30" y="130" width="170" height="50" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text x="115" y="151.5" text-anchor="middle" fill="#3C3489" font-size="13" font-weight="500">Smartphone</text>
+  <text x="115" y="166.5" text-anchor="middle" fill="#534AB7" font-size="11">cliente</text>
+  <rect x="30" y="230" width="170" height="50" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text x="115" y="251.5" text-anchor="middle" fill="#3C3489" font-size="13" font-weight="500">Portátil</text>
+  <text x="115" y="266.5" text-anchor="middle" fill="#534AB7" font-size="11">cliente</text>
+  <rect x="290" y="130" width="120" height="50" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text x="350" y="151.5" text-anchor="middle" fill="#0C447C" font-size="13" font-weight="500">Internet</text>
+  <text x="350" y="166.5" text-anchor="middle" fill="#185FA5" font-size="11">red</text>
+  <rect x="500" y="120" width="150" height="70" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="575" y="151.5" text-anchor="middle" fill="#04342C" font-size="13" font-weight="500">Servidor</text>
+  <text x="575" y="166.5" text-anchor="middle" fill="#0F6E56" font-size="11">proveedor de recursos</text>
+  <path d="M202 55 L338 55 Q350 55 350 67 L350 128" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <path d="M202 155 L288 155" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <path d="M202 255 L338 255 Q350 255 350 243 L350 182" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <path d="M412 155 L498 155" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+  <text x="455" y="143" text-anchor="middle" fill="#5F5E5A" font-size="10">peticiones</text>
+  <text x="455" y="175" text-anchor="middle" fill="#5F5E5A" font-size="10">respuestas</text>
+</svg>

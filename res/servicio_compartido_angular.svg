@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 320" font-family="Helvetica, Arial, sans-serif" role="img" aria-label="Servicio compartido en Angular">
+  <title>Servicio compartido en Angular</title>
+  <desc>Cuatro componentes (A, B, C y D) inyectan y usan la misma instancia de un servicio.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#888780"/></marker>
+    <marker id="herencia" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L12 6L0 12z" fill="#ffffff" stroke="#5F5E5A" stroke-width="1"/></marker>
+  </defs>
+  <circle cx="340" cy="200" r="62" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text x="340" y="197" text-anchor="middle" fill="#0C447C" font-size="15" font-weight="600">Servicio</text>
+  <text x="340" y="215" text-anchor="middle" fill="#185FA5" font-size="11">una sola instancia</text>
+  <rect x="50" y="175" width="150" height="50" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text x="125" y="204" text-anchor="middle" fill="#412402" font-size="13" font-weight="500">Componente A</text>
+  <rect x="160" y="40" width="150" height="50" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+  <text x="235" y="69" text-anchor="middle" fill="#2C2C2A" font-size="13" font-weight="500">Componente B</text>
+  <rect x="370" y="40" width="150" height="50" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text x="445" y="69" text-anchor="middle" fill="#3C3489" font-size="13" font-weight="500">Componente C</text>
+  <rect x="480" y="175" width="150" height="50" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="555" y="204" text-anchor="middle" fill="#04342C" font-size="13" font-weight="500">Componente D</text>
+  <path d="M202 200 L276 200" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M478 200 L404 200" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M246 92 L296 156" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M434 92 L384 156" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="340" y="300" text-anchor="middle" fill="#5F5E5A" font-size="11">Cada componente obtiene el servicio con inject()</text>
+</svg>

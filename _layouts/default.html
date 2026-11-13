@@ -1,185 +1,109 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="{{ site.lang | default: 'es' }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ page.title | default: site.title }}</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.encabezado %}{{ page.encabezado }} · {{ site.title }}{% elsif page.title %}{{ page.title }} · {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  <meta name="author" content="{{ site.author }}">
 
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <link rel="stylesheet" href="{{ '/assets/css/code-blocks.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 
-    <!-- Estilos para centrar diagramas Mermaid -->
-    <style>
-        .mermaid {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 2em 0;
-        }
-
-        .mermaid svg {
-            max-width: 100%;
-            height: auto;
-        }
-
-        /* Botón de copiar código */
-        .code-block-wrapper {
-            position: relative;
-        }
-
-        .copy-code-button {
-            position: absolute;
-            top: 8px;
-            right: 8px;
-            padding: 6px 12px;
-            font-size: 12px;
-            font-weight: 500;
-            line-height: 20px;
-            color: #24292f;
-            background-color: #f6f8fa;
-            border: 1px solid rgba(27, 31, 36, 0.15);
-            border-radius: 6px;
-            cursor: pointer;
-            opacity: 0;
-            transition: opacity 0.2s, background-color 0.2s;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-        }
-
-        .code-block-wrapper:hover .copy-code-button {
-            opacity: 1;
-        }
-
-        .copy-code-button:hover {
-            background-color: #f3f4f6;
-            border-color: rgba(27, 31, 36, 0.25);
-        }
-
-        .copy-code-button:active {
-            background-color: #e5e7eb;
-        }
-
-        .copy-code-button.copied {
-            color: #0969da;
-            border-color: #0969da;
-        }
-
-        .copy-code-button svg {
-            vertical-align: text-bottom;
-            margin-right: 4px;
-        }
-    </style>
+  <!-- Evita el flash de tema incorrecto al cargar -->
+  <script>
+    (function() {
+      let saved = null;
+      try { saved = localStorage.getItem('theme'); } catch (e) {}
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = saved || (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
 </head>
 <body>
-    <div class="container-lg px-3 my-5 markdown-body">
-        {% if site.title and site.title != page.title %}
-        <h1><a href="{{ "/" | absolute_url }}">{{ site.title }}</a></h1>
-        {% endif %}
-
-        {{ content }}
-
-        {% if site.github.private != true and site.github.license %}
-        <div class="footer border-top border-gray-light mt-5 pt-3 text-right text-gray">
-            Este sitio es de código abierto. {% github_edit_link "Mejora esta página" %}.
-        </div>
-        {% endif %}
+  <header class="site-header">
+    <div class="container header-content">
+      <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title }}</a>
+      <nav class="site-nav">
+        <a href="{{ site.repositorio }}" target="_blank" rel="noopener" class="nav-link" aria-label="GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.37.5 0 5.78 0 12.292c0 5.211 3.438 9.63 8.205 11.188.6.111.82-.254.82-.567 0-.28-.01-1.022-.015-2.005-3.338.711-4.042-1.582-4.042-1.582-.546-1.361-1.335-1.725-1.335-1.725-1.087-.731.084-.716.084-.716 1.205.082 1.838 1.215 1.838 1.215 1.07 1.803 2.809 1.282 3.495.981.108-.763.417-1.282.76-1.577-2.665-.295-5.466-1.309-5.466-5.827 0-1.287.465-2.339 1.235-3.164-.135-.298-.54-1.497.105-3.121 0 0 1.005-.316 3.3 1.209.96-.262 1.98-.392 3-.398 1.02.006 2.04.136 3 .398 2.28-1.525 3.285-1.209 3.285-1.209.645 1.624.24 2.823.12 3.121.765.825 1.23 1.877 1.23 3.164 0 4.53-2.805 5.527-5.475 5.817.42.354.81 1.077.81 2.182 0 1.578-.015 2.846-.015 3.229 0 .309.21.678.825.56C20.565 21.917 24 17.495 24 12.292 24 5.78 18.627.5 12 .5z"/></svg>
+        </a>
+        <button id="theme-toggle" class="theme-toggle" aria-label="Cambiar tema">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+      </nav>
     </div>
+    <div class="barra-progreso" aria-hidden="true"><div class="barra-progreso-relleno"></div></div>
+  </header>
 
-    <!-- Mermaid.js para diagramas -->
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
-    <script>
-        // Configurar Mermaid
-        mermaid.initialize({
-            startOnLoad: false,
-            theme: 'default',
-            securityLevel: 'loose'
-        });
+  <main class="container">
+    {%- comment -%} Posición de la página en _data/guias.yml {%- endcomment -%}
+    {%- assign guias = site.data.guias -%}
+    {%- assign actual = nil -%}
+    {%- for g in guias -%}
+      {%- if g.archivo == page.path -%}
+        {%- assign actual = forloop.index0 -%}
+      {%- endif -%}
+    {%- endfor -%}
 
-        // Convertir bloques de código con clase 'language-mermaid' a diagramas Mermaid
-        document.addEventListener('DOMContentLoaded', function() {
-            // Buscar todos los bloques de código con lenguaje mermaid
-            const mermaidBlocks = document.querySelectorAll('pre code.language-mermaid');
+    <article class="content">
+      {%- if page.encabezado %}
+      {%- assign docentes = page.docentes | default: site.author -%}
+      <header class="guia-cabecera">
+        <p class="guia-etiqueta">
+          {%- if actual != nil -%}
+            Guía {{ guias[actual].archivo | slice: 0, 2 }} · {{ guias[actual].bloque }}
+          {%- else -%}
+            {{ site.title }}
+          {%- endif -%}
+        </p>
+        <p class="guia-nombre">{{ page.encabezado }}</p>
+        <p class="guia-datos">
+          Universidad del Quindío · Programa de Ingeniería de Sistemas y Computación<br>
+          {% if docentes contains ',' %}Docentes{% else %}Docente{% endif %}: {{ docentes }}
+          {%- if page.duracion %} · Duración estimada: {{ page.duracion }} min{% endif %}
+        </p>
+      </header>
+      {%- endif %}
 
-            mermaidBlocks.forEach((block, index) => {
-                // Crear un div con clase mermaid
-                const mermaidDiv = document.createElement('div');
-                mermaidDiv.className = 'mermaid';
-                mermaidDiv.textContent = block.textContent;
+      {{ content }}
 
-                // Reemplazar el bloque de código con el div de mermaid
-                block.parentElement.replaceWith(mermaidDiv);
-            });
+      {%- if actual != nil %}
+      {%- assign total = guias | size | minus: 1 -%}
+      <nav class="guia-navegacion" aria-label="Navegación entre guías">
+        {%- if actual > 0 -%}
+          {%- assign i = actual | minus: 1 -%}
+          {%- assign anterior = guias[i] -%}
+          {%- assign p = site.pages | where: "path", anterior.archivo | first %}
+        <a class="guia-enlace guia-anterior" href="{{ p.url | relative_url }}">
+          <span class="guia-direccion">← Anterior</span>
+          <span class="guia-enlace-titulo">{{ anterior.titulo }}</span>
+        </a>
+        {%- else %}
+        <span></span>
+        {%- endif -%}
+        {%- if actual < total -%}
+          {%- assign i = actual | plus: 1 -%}
+          {%- assign siguiente = guias[i] -%}
+          {%- assign p = site.pages | where: "path", siguiente.archivo | first %}
+        <a class="guia-enlace guia-siguiente" href="{{ p.url | relative_url }}">
+          <span class="guia-direccion">Siguiente →</span>
+          <span class="guia-enlace-titulo">{{ siguiente.titulo }}</span>
+        </a>
+        {%- endif %}
+      </nav>
+      {%- endif %}
+    </article>
+  </main>
 
-            // Inicializar Mermaid después de procesar los bloques
-            mermaid.run();
-        });
-    </script>
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; {{ 'now' | date: '%Y' }} {{ site.author }} · {{ site.title }}</p>
+      <p class="footer-sub">Universidad del Quindío</p>
+    </div>
+  </footer>
 
-    <!-- Botones de copiar código -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Buscar todos los bloques de código que no sean mermaid
-            const codeBlocks = document.querySelectorAll('div.highlight pre');
-
-            codeBlocks.forEach((pre) => {
-                // Crear wrapper
-                const wrapper = document.createElement('div');
-                wrapper.className = 'code-block-wrapper';
-
-                // Envolver el pre en el wrapper
-                pre.parentNode.insertBefore(wrapper, pre);
-                wrapper.appendChild(pre);
-
-                // Crear botón de copiar
-                const button = document.createElement('button');
-                button.className = 'copy-code-button';
-                button.type = 'button';
-                button.innerHTML = `
-                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                        <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path>
-                        <path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
-                    </svg>
-                    Copy
-                `;
-
-                // Agregar evento de clic
-                button.addEventListener('click', async function() {
-                    // Obtener el texto del código
-                    const code = pre.querySelector('code');
-                    const text = code ? code.textContent : pre.textContent;
-
-                    try {
-                        // Copiar al portapapeles
-                        await navigator.clipboard.writeText(text);
-
-                        // Cambiar el texto del botón
-                        button.innerHTML = `
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                                <path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path>
-                            </svg>
-                            Copied!
-                        `;
-                        button.classList.add('copied');
-
-                        // Restaurar después de 2 segundos
-                        setTimeout(() => {
-                            button.innerHTML = `
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
-                                    <path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path>
-                                    <path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path>
-                                </svg>
-                                Copy
-                            `;
-                            button.classList.remove('copied');
-                        }, 2000);
-                    } catch (err) {
-                        console.error('Error al copiar:', err);
-                    }
-                });
-
-                // Agregar botón al wrapper
-                wrapper.appendChild(button);
-            });
-        });
-    </script>
+  <script src="{{ '/assets/js/main.js' | relative_url }}"></script>
 </body>
 </html>

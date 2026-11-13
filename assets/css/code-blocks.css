@@ -1,5 +1,0 @@
-/* Mejora simple de line-height para bloques de código */
-
-.highlight pre {
-    line-height: 1.6 !important;
-}

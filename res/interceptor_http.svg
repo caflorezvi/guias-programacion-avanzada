@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 190" font-family="Helvetica, Arial, sans-serif" role="img" aria-label="Interceptor HTTP">
+  <title>Interceptor HTTP</title>
+  <desc>El interceptor se ubica entre la aplicación Angular y el servidor: intercepta las peticiones de salida y las respuestas de entrada.</desc>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" markerUnits="userSpaceOnUse" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#888780"/></marker>
+    <marker id="herencia" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="14" markerHeight="14" markerUnits="userSpaceOnUse" orient="auto"><path d="M0 0L12 6L0 12z" fill="#ffffff" stroke="#5F5E5A" stroke-width="1"/></marker>
+  </defs>
+  <rect x="30" y="65" width="150" height="64" rx="8" fill="#FCEBEB" stroke="#A32D2D" stroke-width="0.5"/>
+  <text x="105" y="93.5" text-anchor="middle" fill="#791F1F" font-size="13" font-weight="500">Aplicación</text>
+  <text x="105" y="108.5" text-anchor="middle" fill="#A32D2D" font-size="11">Angular</text>
+  <rect x="265" y="65" width="150" height="64" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text x="340" y="93.5" text-anchor="middle" fill="#3C3489" font-size="13" font-weight="500">Interceptor</text>
+  <text x="340" y="108.5" text-anchor="middle" fill="#534AB7" font-size="11" font-family="Menlo, Consolas, monospace">HttpInterceptorFn</text>
+  <rect x="500" y="65" width="150" height="64" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text x="575" y="93.5" text-anchor="middle" fill="#04342C" font-size="13" font-weight="500">Servidor</text>
+  <text x="575" y="108.5" text-anchor="middle" fill="#0F6E56" font-size="11">API REST</text>
+  <path d="M182 86 L263 86" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M263 108 L182 108" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="222.5" y="78" text-anchor="middle" fill="#444441" font-size="11">petición</text>
+  <text x="222.5" y="124" text-anchor="middle" fill="#444441" font-size="11">respuesta</text>
+  <path d="M417 86 L498 86" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M498 108 L417 108" fill="none" stroke="#888780" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <text x="457.5" y="78" text-anchor="middle" fill="#444441" font-size="11">petición</text>
+  <text x="457.5" y="124" text-anchor="middle" fill="#444441" font-size="11">respuesta</text>
+  <text x="340" y="40" text-anchor="middle" fill="#5F5E5A" font-size="11">agrega encabezados (token) · maneja errores</text>
+  <text x="340" y="165" text-anchor="middle" fill="#5F5E5A" font-size="11">Toda petición y respuesta pasa por el interceptor</text>
+</svg>
